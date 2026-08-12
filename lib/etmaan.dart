@@ -23,7 +23,15 @@ class Etmaan extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Etmaan',
+          locale: const Locale('ar'),
+          builder: (context, child) {
+            return Directionality(
+              textDirection: TextDirection.rtl,
+              child: child!,
+            );
+          },
           theme: ThemeData(
+            fontFamily: 'Tajawal',
             scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
           ),
           home: const OnboardingView(),

@@ -1,10 +1,72 @@
+import 'package:etmaan/core/theme/app_colors.dart';
+import 'package:etmaan/core/theme/app_strings.dart';
+import 'package:etmaan/features/home/data/datasource/home_local_datasource.dart';
+import 'package:etmaan/features/home/data/repo/home_repo_imp.dart';
+import 'package:etmaan/features/home/logic/cubit/daily_content_cubit.dart';
+import 'package:etmaan/features/home/logic/cubit/daily_content_state.dart';
+import 'package:etmaan/features/home/presentation/widget/achievements_section.dart';
+import 'package:etmaan/features/home/presentation/widget/hadith_card.dart';
+import 'package:etmaan/features/home/presentation/widget/home_header.dart';
+import 'package:etmaan/features/home/presentation/widget/tools_section.dart';
+import 'package:etmaan/features/home/presentation/widget/verse_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold();
+    return BlocProvider(
+      create: (context) =>
+          DailyContentCubit(HomeRepoImp(HomeLocalDataSource()))
+            ..getDailyContent(),
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: AppColors.primaryColor,
+          surfaceTintColor: AppColors.primaryColor,
+          title: Text(
+            "أطمئن",
+            style: AppStrings.font22BoldTitle.copyWith(color: Colors.white),
+          ),
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+            child: BlocBuilder<DailyContentCubit, DailyContentState>(
+              builder: (context, state) {
+                if (state is DailyContentLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (state is DailyContentError) {
+                  return Center(child: Text(state.message));
+                }
+                if (state is DailyContentLoaded) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const HomeHeader(),
+                      Gap(12.h),
+                      VerseCard(verse: state.verse),
+                      Gap(14.h),
+                      HadithCard(hadith: state.hadith),
+                      Gap(16.h),
+                      const ToolsSection(),
+                      Gap(16.h),
+                      const AchievementsSection(),
+                      Gap(20.h),
+                    ],
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

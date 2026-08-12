@@ -44,15 +44,18 @@ class _RootViewState extends State<RootView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: controller,
-        physics: const NeverScrollableScrollPhysics(),
-        children: _screens,
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: currentScreen,
-        onTap: _onNavItemTap,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: PageView(
+          controller: controller,
+          physics: const NeverScrollableScrollPhysics(),
+          children: _screens,
+        ),
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: currentScreen,
+          onTap: _onNavItemTap,
+        ),
       ),
     );
   }

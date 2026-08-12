@@ -1,0 +1,82 @@
+[
+  {
+    "id": 41,
+    "surahNumber": 93,
+    "surahName": "الضحى",
+    "verseNumber": 3,
+    "category": "الأمل",
+    "text": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ"
+  },
+  {
+    "id": 42,
+    "surahNumber": 93,
+    "surahName": "الضحى",
+    "verseNumber": 4,
+    "category": "الأمل",
+    "text": "وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ"
+  },
+  {
+    "id": 43,
+    "surahNumber": 93,
+    "surahName": "الضحى",
+    "verseNumber": 5,
+    "category": "الرجاء",
+    "text": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ"
+  },
+  {
+    "id": 44,
+    "surahNumber": 94,
+    "surahName": "الشرح",
+    "verseNumber": 7,
+    "category": "العمل",
+    "text": "فَإِذَا فَرَغْتَ فَانصَبْ"
+  },
+  {
+    "id": 45,
+    "surahNumber": 94,
+    "surahName": "الشرح",
+    "verseNumber": 8,
+    "category": "التوكل",
+    "text": "وَإِلَىٰ رَبِّكَ فَارْغَب"
+  },
+  {
+    "id": 46,
+    "surahNumber": 95,
+    "surahName": "التين",
+    "verseNumber": 4,
+    "category": "القيمة",
+    "text": "لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ"
+  },
+  {
+    "id": 47,
+    "surahNumber": 103,
+    "surahName": "العصر",
+    "verseNumber": 3,
+    "category": "النجاة",
+    "text": "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ"
+  },
+  {
+    "id": 48,
+    "surahNumber": 112,
+    "surahName": "الإخلاص",
+    "verseNumber": 1,
+    "category": "التوحيد",
+    "text": "قُلْ هُوَ اللَّهُ أَحَدٌ"
+  },
+  {
+    "id": 49,
+    "surahNumber": 112,
+    "surahName": "الإخلاص",
+    "verseNumber": 2,
+    "category": "التوحيد",
+    "text": "اللَّهُ الصَّمَدُ"
+  },
+  {
+    "id": 50,
+    "surahNumber": 112,
+    "surahName": "الإخلاص",
+    "verseNumber": 3,
+    "category": "التوحيد",
+    "text": "لَمْ يَلِدْ وَلَمْ يُولَدْ"
+  }
+]

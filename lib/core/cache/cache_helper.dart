@@ -19,7 +19,6 @@ class CacheHelper {
   Future<void> init() async {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
-
   // ==================
   // Save Data
   // ==================

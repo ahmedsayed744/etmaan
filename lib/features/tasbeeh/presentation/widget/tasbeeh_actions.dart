@@ -60,7 +60,7 @@ class _ActionButton extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(18),
           elevation: 2,
-          shadowColor: Colors.black.withOpacity(.08),
+          shadowColor: Colors.black.withValues(alpha: 0.8),
           child: InkWell(
             onTap: onTap,
             borderRadius: BorderRadius.circular(18),

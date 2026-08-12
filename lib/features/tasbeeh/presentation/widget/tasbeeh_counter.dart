@@ -30,7 +30,6 @@ class _TasbeehCounterState extends State<TasbeehCounter> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TasbeehCubit, TasbeehState>(

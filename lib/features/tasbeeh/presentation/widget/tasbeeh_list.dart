@@ -26,7 +26,7 @@ class TasbeehList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemCount: state.tasbeehList.length,
-            separatorBuilder: (_, __) {
+            separatorBuilder: (_, _) {
               return const SizedBox(width: 10);
             },
             itemBuilder: (context, index) {
