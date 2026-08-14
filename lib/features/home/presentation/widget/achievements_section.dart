@@ -1,6 +1,8 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:etmaan/features/home/presentation/widget/achievement_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class AchievementsSection extends StatelessWidget {
   const AchievementsSection({super.key});
@@ -8,19 +10,17 @@ class AchievementsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'إنجازات اليوم',
-          textDirection: TextDirection.rtl,
-          style: TextStyle(
+          style: AppStrings.font18Regular.copyWith(
             fontSize: 16.sp,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xff111827),
+            fontWeight: FontWeight.w600,
           ),
         ),
 
-        SizedBox(height: 10.h),
+        Gap(10),
 
         Row(
           children: [
@@ -35,7 +35,7 @@ class AchievementsSection extends StatelessWidget {
               ),
             ),
 
-            SizedBox(width: 8.w),
+            Gap(15),
 
             Expanded(
               child: AchievementItem(
@@ -50,7 +50,7 @@ class AchievementsSection extends StatelessWidget {
           ],
         ),
 
-        SizedBox(height: 8.h),
+        Gap(15),
 
         Row(
           children: [
@@ -65,7 +65,7 @@ class AchievementsSection extends StatelessWidget {
               ),
             ),
 
-            SizedBox(width: 8.w),
+            Gap(15),
 
             Expanded(
               child: AchievementItem(

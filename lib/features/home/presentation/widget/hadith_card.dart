@@ -28,33 +28,36 @@ class HadithCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+            width: 90.w,
+            height: 30.h,
             decoration: BoxDecoration(
               color: const Color(0xfffff2c9),
               borderRadius: BorderRadius.circular(20.r),
             ),
-            child: Text(
-              'حديث اليوم',
-              style: TextStyle(fontSize: 14.sp, color: AppColors.primaryColor),
+            child: Center(
+              child: Text(
+                'حديث اليوم',
+                style: TextStyle(
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.primaryColor,
+                ),
+              ),
             ),
           ),
-
-          Gap(10),
-
+          Gap(20),
           Text(
             hadith.text,
-
             style: TextStyle(
-              fontSize: 15.sp,
-              height: 1.7,
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w600,
+              height: 1.6,
               color: const Color(0xff25313B),
             ),
           ),
-
           Gap(5.h),
-
           Text(
-            'رواه مسلم',
+            hadith.bookName,
             style: AppStrings.font18Regular.copyWith(
               fontSize: 16.sp,
               color: AppColors.primaryColor,

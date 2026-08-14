@@ -1,9 +1,7 @@
+import 'package:etmaan/features/home/data/datasource/home_local_datasource.dart';
 import 'package:etmaan/features/home/data/domain/home_repo.dart';
 import 'package:etmaan/features/home/data/models/hadith_model.dart';
 import 'package:etmaan/features/home/data/models/verse_model.dart';
-
-import '../datasource/home_local_datasource.dart';
-
 
 class HomeRepoImp implements HomeRepo {
   final HomeLocalDataSource dataSource;
@@ -11,13 +9,12 @@ class HomeRepoImp implements HomeRepo {
   HomeRepoImp(this.dataSource);
 
   @override
-
-  Future<List<HadithModel>> getHadiths() {
-    return dataSource.getHadiths();
+  Future<List<HadithModel>> getDailyHadiths() {
+    return dataSource.getDailyHadiths();
   }
 
   @override
-  Future<List<VerseModel>> getVerses() {
-    return dataSource.getVerses();
+  Future<List<VerseModel>> getDailyVerses() {
+    return dataSource.getDailyVerses();
   }
 }

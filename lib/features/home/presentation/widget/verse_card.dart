@@ -29,22 +29,29 @@ class VerseCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+            width: 90.w,
+            height: 30.h,
             decoration: BoxDecoration(
               color: AppColors.scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(50).r,
             ),
-            child: Text(
-              'آية اليوم',
-              style: AppStrings.font18Regular.copyWith(
-                color: AppColors.primaryColor,
-                fontSize: 16.sp,
+            child: Center(
+              child: Text(
+                'آية اليوم',
+                style: AppStrings.font18Regular.copyWith(
+                  color: AppColors.primaryColor,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
-          Gap(15.h),
+          Gap(20.h),
           Center(
-            child: Text('( ${verse.text} )', style: AppStrings.font32Bold),
+            child: Text(
+              '( ${verse.text} )',
+              style: AppStrings.font32Bold.copyWith(fontSize: 17.sp),
+            ),
           ),
           const SizedBox(height: 16),
           Text(

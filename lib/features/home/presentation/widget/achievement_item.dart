@@ -1,5 +1,7 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class AchievementItem extends StatelessWidget {
   final String value;
@@ -21,62 +23,53 @@ class AchievementItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 68.h,
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(17.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: .04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 40.w,
-            height: 40.w,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(12.r),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Container(
+        height: 68.h,
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(17.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: .04),
+              blurRadius: 10,
+              offset: const Offset(0, 3),
             ),
-            child: Icon(
-              icon,
-              size: 20.sp,
-              color: iconColor,
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 40.w,
+              height: 40.w,
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              child: Icon(icon, size: 22.sp, color: iconColor),
             ),
-          ),
-
-          SizedBox(width: 10.w),
-
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                  fontSize: 21.sp,
-                  fontWeight: FontWeight.bold,
-                  color: valueColor,
+            Gap(20.w),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  value,
+                  style: AppStrings.font22BoldTitle.copyWith(color: valueColor),
                 ),
-              ),
-
-              Text(
-                label,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  fontSize: 9.sp,
-                  color: const Color(0xff8B9297),
+                Text(
+                  label,
+                  style: AppStrings.font18Regular.copyWith(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

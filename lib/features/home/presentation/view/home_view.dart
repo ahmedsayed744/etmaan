@@ -5,8 +5,8 @@ import 'package:etmaan/features/home/data/repo/home_repo_imp.dart';
 import 'package:etmaan/features/home/logic/cubit/daily_content_cubit.dart';
 import 'package:etmaan/features/home/logic/cubit/daily_content_state.dart';
 import 'package:etmaan/features/home/presentation/widget/achievements_section.dart';
+import 'package:etmaan/features/home/presentation/widget/daily_goal_widget.dart';
 import 'package:etmaan/features/home/presentation/widget/hadith_card.dart';
-import 'package:etmaan/features/home/presentation/widget/home_header.dart';
 import 'package:etmaan/features/home/presentation/widget/tools_section.dart';
 import 'package:etmaan/features/home/presentation/widget/verse_card.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +14,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  late final HomeLocalDataSource dataSource;
+  @override
+  void initState() {
+    super.initState();
+    dataSource = HomeLocalDataSource();
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          DailyContentCubit(HomeRepoImp(HomeLocalDataSource()))
-            ..getDailyContent(),
+          DailyContentCubit(HomeRepoImp(dataSource))..getDailyContent(),
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -35,7 +46,7 @@ class HomeView extends StatelessWidget {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 25.h),
             child: BlocBuilder<DailyContentCubit, DailyContentState>(
               builder: (context, state) {
                 if (state is DailyContentLoading) {
@@ -48,15 +59,15 @@ class HomeView extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const HomeHeader(),
-                      Gap(12.h),
                       VerseCard(verse: state.verse),
-                      Gap(14.h),
+                      Gap(18.h),
                       HadithCard(hadith: state.hadith),
                       Gap(16.h),
                       const ToolsSection(),
                       Gap(16.h),
                       const AchievementsSection(),
+                      Gap(24.h),
+                      DailyGoalWidget(),
                       Gap(20.h),
                     ],
                   );

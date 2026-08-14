@@ -1,73 +1,65 @@
 import 'dart:convert';
-import 'package:etmaan/features/home/data/models/hadith_model.dart';
-import 'package:etmaan/features/home/data/models/verse_model.dart';
+
 import 'package:flutter/services.dart';
+
+import '../models/hadith_model.dart';
+import '../models/verse_model.dart';
+
 class HomeLocalDataSource {
+  List<HadithModel>? _dailyHadithsCache;
+  List<VerseModel>? _dailyVersesCache;
 
   // ============================================
-  // Hadith
+  // Daily Hadiths
   // ============================================
 
-  Future<List<HadithModel>> getHadiths() async {
-    const files = [
-      'assets/data/hadith/bukhari_1.json',
-      'assets/data/hadith/bukhari_2.json',
-      'assets/data/hadith/bukhari_3.json',
-      'assets/data/hadith/bukhari_4.json',
-      'assets/data/hadith/bukhari_5.json',
-      'assets/data/hadith/bukhari_6.json',
-      'assets/data/hadith/bukhari_7.json',
-      'assets/data/hadith/bukhari_8.json',
-    ];
-
-    final List<HadithModel> allHadiths = [];
-
-    for (final file in files) {
-      final jsonString = await rootBundle.loadString(file);
-
-      final List<dynamic> data = jsonDecode(jsonString);
-
-      final hadiths = data.map(
-        (item) => HadithModel.fromJson(
-          item as Map<String, dynamic>,
-        ),
-      );
-
-      allHadiths.addAll(hadiths);
+  Future<List<HadithModel>> getDailyHadiths() async {
+    // Return cached data
+    if (_dailyHadithsCache != null) {
+      return _dailyHadithsCache!;
     }
 
-    return allHadiths;
+    final jsonString = await rootBundle.loadString(
+      'assets/data/daily/daily_hadith.json',
+    );
+
+    final List<dynamic> data = jsonDecode(jsonString);
+
+    _dailyHadithsCache = data
+        .map(
+          (item) => HadithModel.fromJson(
+            item as Map<String, dynamic>,
+          ),
+        )
+        .toList();
+
+    return _dailyHadithsCache!;
   }
 
   // ============================================
-  // Quran Verses
+  // Daily Verses
   // ============================================
 
-  Future<List<VerseModel>> getVerses() async {
-    const files = [
-      'assets/data/verse/verses_1.json',
-      'assets/data/verse/verses_2.json',
-      'assets/data/verse/verses_3.json',
-      'assets/data/verse/verses_4.json',
-      'assets/data/verse/verses_5.json',
-      'assets/data/verse/verses_6.json',
-    ];
-
-    final List<VerseModel> allVerses = [];
-
-    for (final file in files) {
-      final jsonString = await rootBundle.loadString(file);
-
-      final List<dynamic> data = jsonDecode(jsonString);
-
-      final verses = data.map(
-        (item) => VerseModel.fromJson(
-          item as Map<String, dynamic>,
-        ),
-      );
-
-      allVerses.addAll(verses);
+  Future<List<VerseModel>> getDailyVerses() async {
+    // Return cached data
+    if (_dailyVersesCache != null) {
+      return _dailyVersesCache!;
     }
-    return allVerses;
+
+    final jsonString = await rootBundle.loadString(
+      'assets/data/daily/daily_verses.json',
+    );
+
+    final List<dynamic> data = jsonDecode(jsonString);
+
+    _dailyVersesCache = data
+        .map(
+          (item) => VerseModel.fromJson(
+            item as Map<String, dynamic>,
+          ),
+        )
+        .toList();
+
+    return _dailyVersesCache!;
   }
 }

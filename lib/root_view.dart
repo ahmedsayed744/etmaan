@@ -8,12 +8,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RootView extends StatefulWidget {
   const RootView({super.key});
+
   @override
   State<RootView> createState() => _RootViewState();
 }
 
 class _RootViewState extends State<RootView> {
-  late PageController controller;
   final List<Widget> _screens = const [
     HomeView(),
     QuranView(),
@@ -23,23 +23,10 @@ class _RootViewState extends State<RootView> {
 
   int currentScreen = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    controller = PageController(initialPage: currentScreen);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   void _onNavItemTap(int index) {
     setState(() {
       currentScreen = index;
     });
-    controller.jumpToPage(index);
   }
 
   @override
@@ -47,11 +34,8 @@ class _RootViewState extends State<RootView> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        body: PageView(
-          controller: controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: _screens,
-        ),
+        body: IndexedStack(index: currentScreen, children: _screens),
+
         bottomNavigationBar: CustomBottomNavBar(
           currentIndex: currentScreen,
           onTap: _onNavItemTap,
@@ -64,6 +48,7 @@ class _RootViewState extends State<RootView> {
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
+
   const CustomBottomNavBar({
     super.key,
     required this.currentIndex,
@@ -94,11 +79,12 @@ class CustomBottomNavBar extends StatelessWidget {
               index: 0,
               currentIndex: currentIndex,
               icon: Icons.home_outlined,
-              selectedIcon: Icons.home_outlined,
+              selectedIcon: Icons.home_rounded,
               label: 'الرئيسية',
               onTap: onTap,
             ),
           ),
+
           Expanded(
             child: _NavItem(
               index: 1,
@@ -120,12 +106,13 @@ class CustomBottomNavBar extends StatelessWidget {
               onTap: onTap,
             ),
           ),
+
           Expanded(
             child: _NavItem(
-              index: 4,
+              index: 3,
               currentIndex: currentIndex,
               icon: Icons.settings_outlined,
-              selectedIcon: Icons.settings_outlined,
+              selectedIcon: Icons.settings_rounded,
               label: 'الإعدادات',
               onTap: onTap,
             ),
@@ -143,6 +130,7 @@ class _NavItem extends StatelessWidget {
   final IconData selectedIcon;
   final String label;
   final ValueChanged<int> onTap;
+
   const _NavItem({
     required this.index,
     required this.currentIndex,
@@ -151,9 +139,11 @@ class _NavItem extends StatelessWidget {
     required this.label,
     required this.onTap,
   });
+
   @override
   Widget build(BuildContext context) {
     final bool isSelected = currentIndex == index;
+
     return GestureDetector(
       onTap: () => onTap(index),
       behavior: HitTestBehavior.opaque,

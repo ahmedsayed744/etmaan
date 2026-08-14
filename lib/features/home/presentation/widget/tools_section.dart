@@ -1,3 +1,4 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -12,10 +13,9 @@ class ToolsSection extends StatelessWidget {
       children: [
         Text(
           'الأدوات',
-          style: TextStyle(
+          style: AppStrings.font18Regular.copyWith(
             fontSize: 16.sp,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xff111827),
+            fontWeight: FontWeight.w600,
           ),
         ),
         Gap(10.h),
@@ -78,8 +78,7 @@ class ToolItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 74.w,
-        height: 94.h,
+        width: 75.w,
         padding: EdgeInsets.symmetric(vertical: 10.h),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -107,7 +106,10 @@ class ToolItem extends StatelessWidget {
             Gap(8.h),
             Text(
               title,
-              style: TextStyle(fontSize: 11.sp, color: const Color(0xff4B5563)),
+              style: AppStrings.font18Regular.copyWith(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ],
         ),

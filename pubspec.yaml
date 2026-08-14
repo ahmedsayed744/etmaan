@@ -80,20 +80,8 @@ flutter:
     - assets/images/
     - assets/data/hadith/
     - assets/data/quran/
-    - assets/data/hadith/bukhari_1.json
-    - assets/data/hadith/bukhari_2.json
-    - assets/data/hadith/bukhari_3.json
-    - assets/data/hadith/bukhari_4.json
-    - assets/data/hadith/bukhari_5.json
-    - assets/data/hadith/bukhari_6.json
-    - assets/data/hadith/bukhari_7.json
-    - assets/data/hadith/bukhari_8.json
-    - assets/data/verse/verses_1.json
-    - assets/data/verse/verses_2.json
-    - assets/data/verse/verses_3.json
-    - assets/data/verse/verses_4.json
-    - assets/data/verse/verses_5.json
-    - assets/data/verse/verses_6.json
+    - assets/data/daily/
+    - assets/data/verse/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
