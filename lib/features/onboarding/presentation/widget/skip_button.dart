@@ -12,7 +12,7 @@ class SkipButton extends StatelessWidget {
     final cubit = context.read<OnBoardingCubit>();
 
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: Alignment.centerLeft,
       child: TextButton(
         onPressed: () {
           cubit.pageController.animateToPage(
@@ -23,10 +23,7 @@ class SkipButton extends StatelessWidget {
         },
         child: const Text(
           "تخطي",
-          style: TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
         ),
       ),
     );

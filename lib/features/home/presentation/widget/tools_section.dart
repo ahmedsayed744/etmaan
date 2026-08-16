@@ -1,4 +1,6 @@
 import 'package:etmaan/core/theme/app_strings.dart';
+import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
+import 'package:etmaan/features/tasbeeh/presentation/view/tasbeeh_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -30,19 +32,30 @@ class ToolsSection extends StatelessWidget {
               onTap: () {},
             ),
             ToolItem(
-              title: 'السبحة',
-              icon: Icons.sync,
-              iconColor: const Color(0xffF59E0B),
-              backgroundColor: const Color(0xfffff4d6),
-              onTap: () {},
-            ),
-            ToolItem(
               title: 'الأذكار',
               icon: Icons.nightlight_outlined,
               iconColor: const Color(0xff7C3AED),
               backgroundColor: const Color(0xffF0E9FF),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AzkarView()),
+                );
+              },
             ),
+            ToolItem(
+              title: 'السبحة',
+              icon: Icons.sync,
+              iconColor: const Color(0xffF59E0B),
+              backgroundColor: const Color(0xfffff4d6),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TasbeehView()),
+                );
+              },
+            ),
+
             ToolItem(
               title: 'المصحف',
               icon: Icons.emoji_events_outlined,

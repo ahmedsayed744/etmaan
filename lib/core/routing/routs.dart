@@ -1,9 +1,9 @@
 class Routs {
-  static const String onboardingScreen = '/OnboardingScreen';
+  static const String onboardingView = '/OnboardingView';
   static const String rootView = '/RootView';
-  static const String homeScreen = '/HomeScreen';
-  static const String quranScreen = '/QuranScreen';
-  static const String tasbeehScreen = '/TasbeehScreen';
-  static const String settingScreen = '/SettingScreen';
-
+  static const String homeView = '/HomeView';
+  static const String quranView = '/QuranView';
+  static const String tasbeehView = '/TasbeehView';
+  static const String settingView = '/SettingView';
+  static const String azkarView = '/AzkarView';
 }

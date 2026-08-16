@@ -7,29 +7,20 @@ import 'onboarding_image.dart';
 import 'onboarding_title.dart';
 
 class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({
-    super.key,
-    required this.model,
-  });
+  const OnBoardingPage({super.key, required this.model});
   final OnBoardingModel model;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Spacer(),
-        OnBoardingImage(
-          image: model.image,
-        ),
+        OnBoardingImage(image: model.image),
         Gap(45.h),
-        OnBoardingTitle(
-          title: model.title,
-        ),
+        OnBoardingTitle(title: model.title),
         Gap(18.h),
-        OnBoardingDescription(
-          description: model.description,
-        ),
-        const Spacer(),
+        OnBoardingDescription(description: model.description),
 
+        const Spacer(),
       ],
     );
   }

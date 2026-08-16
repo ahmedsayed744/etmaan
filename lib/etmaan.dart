@@ -1,5 +1,6 @@
 import 'package:etmaan/core/routing/routs.dart';
 import 'package:etmaan/core/theme/app_colors.dart';
+import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
 import 'package:etmaan/features/home/presentation/view/home_view.dart';
 import 'package:etmaan/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:etmaan/features/quran/presentation/view/quran_view.dart';
@@ -36,12 +37,13 @@ class Etmaan extends StatelessWidget {
           ),
           home: const OnboardingView(),
           routes: {
-            Routs.onboardingScreen: (context) => const OnboardingView(),
+            Routs.onboardingView: (context) => const OnboardingView(),
             Routs.rootView: (context) => const RootView(),
-            Routs.homeScreen: (context) => const HomeView(),
-            Routs.quranScreen: (context) => const QuranView(),
-            Routs.tasbeehScreen: (context) => const TasbeehView(),
-            Routs.settingScreen: (context) => const SettingView(),
+            Routs.homeView: (context) => const HomeView(),
+            Routs.quranView: (context) => const QuranView(),
+            Routs.tasbeehView: (context) => const TasbeehView(),
+            Routs.settingView: (context) => const SettingView(),
+            Routs.azkarView:(context)=> const AzkarView(),
           },
         );
       },

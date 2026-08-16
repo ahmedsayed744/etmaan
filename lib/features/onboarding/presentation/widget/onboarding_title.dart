@@ -1,11 +1,8 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingTitle extends StatelessWidget {
-  const OnBoardingTitle({
-    super.key,
-    required this.title,
-  });
+  const OnBoardingTitle({super.key, required this.title});
 
   final String title;
 
@@ -14,11 +11,7 @@ class OnBoardingTitle extends StatelessWidget {
     return Text(
       title,
       textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 30.sp,
-        fontWeight: FontWeight.w800,
-        color: const Color(0xff1B2430),
-      ),
+      style: AppStrings.font32Bold,
     );
   }
 }

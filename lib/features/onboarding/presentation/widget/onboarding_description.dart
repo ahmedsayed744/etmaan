@@ -1,11 +1,9 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingDescription extends StatelessWidget {
-  const OnBoardingDescription({
-    super.key,
-    required this.description,
-  });
+  const OnBoardingDescription({super.key, required this.description});
 
   final String description;
 
@@ -16,8 +14,7 @@ class OnBoardingDescription extends StatelessWidget {
       child: Text(
         description,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 17.sp,
+        style: AppStrings.font18Regular.copyWith(
           color: Colors.grey.shade600,
           height: 1.7,
         ),

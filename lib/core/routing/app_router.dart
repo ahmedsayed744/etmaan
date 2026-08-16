@@ -1,3 +1,4 @@
+import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
 import 'package:etmaan/features/home/presentation/view/home_view.dart';
 import 'package:etmaan/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:etmaan/features/quran/presentation/view/quran_view.dart';
@@ -22,6 +23,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const TasbeehView());
       case '/SettingView':
         return MaterialPageRoute(builder: (_) => const SettingView());
+      case '/AzkarView':
+        return MaterialPageRoute(builder: (_) => const AzkarView());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

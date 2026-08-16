@@ -1,10 +1,11 @@
 import 'package:etmaan/core/cache/cache_helper.dart';
 import 'package:etmaan/core/cache/cache_keys.dart';
+import 'package:etmaan/core/theme/app_colors.dart';
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:etmaan/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class OnboardingButton extends StatelessWidget {
   const OnboardingButton({super.key});
@@ -17,7 +18,7 @@ class OnboardingButton extends StatelessWidget {
 
         return SizedBox(
           width: double.infinity,
-          height: 56.h,
+          height: 60.h,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff2E7D32),
@@ -34,17 +35,18 @@ class OnboardingButton extends StatelessWidget {
                   value: true,
                 );
                 if (!context.mounted) return;
-                 Navigator.pushReplacementNamed(context, '/RootView');
+                Navigator.pushReplacementNamed(context, '/RootView');
               } else {
                 cubit.nextPage();
               }
             },
-            child: Text(
-              cubit.isLastPage ? "ابدأ الآن" : "التالي",
-              style: TextStyle(
-                fontSize: 17.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
+            child: Center(
+              child: Text(
+                cubit.isLastPage ? "ابدأ الآن" : "التالي",
+                style: AppStrings.font18Regular.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.backgroundColor,
+                ),
               ),
             ),
           ),

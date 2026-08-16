@@ -82,6 +82,7 @@ flutter:
     - assets/data/quran/
     - assets/data/daily/
     - assets/data/verse/
+    - assets/data/azkar/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
