@@ -11,11 +11,13 @@ class VerseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.darkContentContainer : Colors.white,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
@@ -32,7 +34,7 @@ class VerseCard extends StatelessWidget {
             width: 90.w,
             height: 30.h,
             decoration: BoxDecoration(
-              color: AppColors.scaffoldBackgroundColor,
+              color: isDark ? const Color(0xff1E2735) : AppColors.scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(50).r,
             ),
             child: Center(
@@ -50,7 +52,10 @@ class VerseCard extends StatelessWidget {
           Center(
             child: Text(
               '( ${verse.text} )',
-              style: AppStrings.font32Bold.copyWith(fontSize: 17.sp),
+              style: AppStrings.font32Bold.copyWith(
+                fontSize: 17.sp,
+                color: theme.textTheme.bodyLarge?.color,
+              ),
             ),
           ),
           const SizedBox(height: 16),

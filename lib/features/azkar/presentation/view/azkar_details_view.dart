@@ -38,7 +38,6 @@ class _AzkarDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF8FAF8),
 
       appBar: AzkarAppBar(title: title),
 

@@ -16,8 +16,10 @@ class AzkarCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Material(
-      color: Colors.white,
+      color: theme.cardTheme.color ?? theme.colorScheme.surface,
       borderRadius: BorderRadius.circular(17.r),
       child: InkWell(
         onTap: onTap,
@@ -25,7 +27,7 @@ class AzkarCategoryCard extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(12.w),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: theme.cardTheme.color ?? theme.colorScheme.surface,
             borderRadius: BorderRadius.circular(17.r),
             boxShadow: [
               BoxShadow(
@@ -48,7 +50,7 @@ class AzkarCategoryCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xff111827),
+                    color: theme.textTheme.bodyLarge?.color,
                     height: 1.3,
                   ),
                 ),
@@ -60,7 +62,7 @@ class AzkarCategoryCard extends StatelessWidget {
                 width: 42.w,
                 height: 42.w,
                 decoration: BoxDecoration(
-                  color: category.backgroundColor,
+                  color: isDark ? const Color(0xff1E2735) : category.backgroundColor,
                   borderRadius:
                       BorderRadius.circular(12.r),
                 ),

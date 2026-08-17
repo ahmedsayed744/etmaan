@@ -61,9 +61,9 @@ class _QuranViewState extends State<QuranView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: const Color(0xffF7F9F7),
-
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.fromLTRB(8.w, 12.h, 8.w, 20.h),
@@ -105,7 +105,7 @@ class _QuranViewState extends State<QuranView> {
                     'لا توجد سورة مطابقة للبحث',
                     style: TextStyle(
                       fontSize: 13.sp,
-                      color: const Color(0xff667085),
+                      color: isDark ? const Color(0xffAEB8C4) : const Color(0xff667085),
                     ),
                   ),
                 ),

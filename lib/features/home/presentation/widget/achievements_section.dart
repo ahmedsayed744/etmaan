@@ -9,6 +9,8 @@ class AchievementsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -17,10 +19,11 @@ class AchievementsSection extends StatelessWidget {
           style: AppStrings.font18Regular.copyWith(
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
+            color: theme.textTheme.titleMedium?.color,
           ),
         ),
 
-        Gap(10),
+        Gap(10.h),
 
         Row(
           children: [
@@ -30,12 +33,12 @@ class AchievementsSection extends StatelessWidget {
                 label: 'صفحة',
                 icon: Icons.menu_book_outlined,
                 iconColor: const Color(0xff198754),
-                backgroundColor: const Color(0xffE8F7EF),
+                backgroundColor: isDark ? const Color(0xff102E20) : const Color(0xffE8F7EF),
                 valueColor: const Color(0xff198754),
               ),
             ),
 
-            Gap(15),
+            Gap(15.w),
 
             Expanded(
               child: AchievementItem(
@@ -43,14 +46,14 @@ class AchievementsSection extends StatelessWidget {
                 label: 'مرة',
                 icon: Icons.sync,
                 iconColor: const Color(0xffD8A63C),
-                backgroundColor: const Color(0xfffff5df),
+                backgroundColor: isDark ? const Color(0xff3D2B0F) : const Color(0xfffff5df),
                 valueColor: const Color(0xffD8A63C),
               ),
             ),
           ],
         ),
 
-        Gap(15),
+        Gap(15.h),
 
         Row(
           children: [
@@ -60,12 +63,12 @@ class AchievementsSection extends StatelessWidget {
                 label: 'حزب',
                 icon: Icons.check,
                 iconColor: const Color(0xff7C3AED),
-                backgroundColor: const Color(0xffF0E9FF),
+                backgroundColor: isDark ? const Color(0xff2A1C42) : const Color(0xffF0E9FF),
                 valueColor: const Color(0xff7C3AED),
               ),
             ),
 
-            Gap(15),
+            Gap(15.w),
 
             Expanded(
               child: AchievementItem(
@@ -73,7 +76,7 @@ class AchievementsSection extends StatelessWidget {
                 label: 'دقيقة',
                 icon: Icons.access_time,
                 iconColor: const Color(0xff3B82F6),
-                backgroundColor: const Color(0xffEAF2FF),
+                backgroundColor: isDark ? const Color(0xff152744) : const Color(0xffEAF2FF),
                 valueColor: const Color(0xff3B82F6),
               ),
             ),

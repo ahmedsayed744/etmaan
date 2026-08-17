@@ -13,10 +13,12 @@ class QuranSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Container(
       height: 46.h,
       decoration: BoxDecoration(
-        color: const Color(0xffF1F3F2),
+        color: isDark ? const Color(0xff1E2735) : const Color(0xffF1F3F2),
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: TextField(
@@ -26,19 +28,19 @@ class QuranSearchBar extends StatelessWidget {
         textAlign: TextAlign.right,
         style: TextStyle(
           fontSize: 13.sp,
-          color: const Color(0xff344054),
+          color: theme.textTheme.bodyLarge?.color,
         ),
         decoration: InputDecoration(
           hintText: 'ابحث عن سورة...',
           hintTextDirection: TextDirection.rtl,
           hintStyle: TextStyle(
             fontSize: 12.sp,
-            color: const Color(0xff98A2B3),
+            color: isDark ? const Color(0xffAEB8C4) : const Color(0xff98A2B3),
           ),
           prefixIcon: Icon(
             Icons.search,
             size: 20.sp,
-            color: const Color(0xff667085),
+            color: isDark ? const Color(0xffAEB8C4) : const Color(0xff667085),
           ),
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(

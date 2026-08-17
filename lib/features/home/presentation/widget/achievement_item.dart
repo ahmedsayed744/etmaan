@@ -23,13 +23,14 @@ class AchievementItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Container(
         height: 68.h,
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardTheme.color ?? theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(17.r),
           boxShadow: [
             BoxShadow(
@@ -64,6 +65,7 @@ class AchievementItem extends StatelessWidget {
                   style: AppStrings.font18Regular.copyWith(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
+                    color: theme.textTheme.bodyMedium?.color,
                   ),
                 ),
               ],

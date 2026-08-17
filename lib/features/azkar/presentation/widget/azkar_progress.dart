@@ -13,6 +13,8 @@ class AzkarProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final double progress = total == 0 ? 0 : completed / total;
 
     final int percentage = (progress * 100).round();
@@ -28,7 +30,7 @@ class AzkarProgress extends StatelessWidget {
             '$completed / $total',
             style: TextStyle(
               fontSize: 10.sp,
-              color: const Color(0xff667085),
+              color: isDark ? const Color(0xffAEB8C4) : const Color(0xff667085),
             ),
           ),
 
@@ -40,7 +42,7 @@ class AzkarProgress extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: progress,
                 minHeight: 5.h,
-                backgroundColor: const Color(0xffE5E7EB),
+                backgroundColor: isDark ? const Color(0xff1E2735) : const Color(0xffE5E7EB),
                 valueColor: const AlwaysStoppedAnimation(
                   Color(0xff2D8B68),
                 ),

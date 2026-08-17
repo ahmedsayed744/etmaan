@@ -29,11 +29,16 @@ class _TasbeehView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        surfaceTintColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        surfaceTintColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
         centerTitle: true,
-        title: Text("السبحة الالكترونية ", style: AppStrings.font22BoldTitle),
+        title: Text(
+          "السبحة الالكترونية ",
+          style: AppStrings.font22BoldTitle.copyWith(
+            color: Theme.of(context).textTheme.titleLarge?.color,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

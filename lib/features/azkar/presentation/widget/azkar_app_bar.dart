@@ -12,15 +12,20 @@ class AzkarAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return AppBar(
-      backgroundColor: Colors.white,
-      surfaceTintColor: Colors.white,
+      backgroundColor: theme.appBarTheme.backgroundColor,
+      surfaceTintColor: theme.appBarTheme.backgroundColor,
       elevation: 0,
       centerTitle: true,
 
       title: Text(
         title,
-        style: AppStrings.font18Regular.copyWith(fontWeight: FontWeight.w700),
+        style: AppStrings.font18Regular.copyWith(
+          fontWeight: FontWeight.w700,
+          color: theme.textTheme.titleLarge?.color,
+        ),
       ),
 
       leading: IconButton(
@@ -30,13 +35,17 @@ class AzkarAppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: Icon(
           Icons.arrow_back,
           size: 20.sp,
-          color: const Color(0xff667085),
+          color: isDark ? const Color(0xffAEB8C4) : const Color(0xff667085),
         ),
       ),
 
-      bottom: const PreferredSize(
-        preferredSize: Size.fromHeight(1),
-        child: Divider(height: 1, thickness: 1, color: Color(0xffE5E7EB)),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(1),
+        child: Divider(
+          height: 1,
+          thickness: 1,
+          color: theme.dividerTheme.color ?? const Color(0xffE5E7EB),
+        ),
       ),
     );
   }

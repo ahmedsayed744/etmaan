@@ -10,11 +10,13 @@ class HadithCard extends StatelessWidget {
   final HadithModel hadith;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.darkContentContainer : Colors.white,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
@@ -31,7 +33,7 @@ class HadithCard extends StatelessWidget {
             width: 90.w,
             height: 30.h,
             decoration: BoxDecoration(
-              color: const Color(0xfffff2c9),
+              color: isDark ? const Color(0xff2A373E) : const Color(0xfffff2c9),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Center(
@@ -52,7 +54,7 @@ class HadithCard extends StatelessWidget {
               fontSize: 14.sp,
               fontWeight: FontWeight.w600,
               height: 1.6,
-              color: const Color(0xff25313B),
+              color: theme.textTheme.bodyLarge?.color,
             ),
           ),
           Gap(5.h),

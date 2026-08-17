@@ -10,6 +10,8 @@ class ToolsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -18,6 +20,7 @@ class ToolsSection extends StatelessWidget {
           style: AppStrings.font18Regular.copyWith(
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
+            color: theme.textTheme.titleMedium?.color,
           ),
         ),
         Gap(10.h),
@@ -28,14 +31,14 @@ class ToolsSection extends StatelessWidget {
               title: 'القرآن',
               icon: Icons.menu_book_outlined,
               iconColor: const Color(0xff198754),
-              backgroundColor: const Color(0xffE8F7EF),
+              backgroundColor: isDark ? const Color(0xff102E20) : const Color(0xffE8F7EF),
               onTap: () {},
             ),
             ToolItem(
               title: 'الأذكار',
               icon: Icons.nightlight_outlined,
               iconColor: const Color(0xff7C3AED),
-              backgroundColor: const Color(0xffF0E9FF),
+              backgroundColor: isDark ? const Color(0xff2A1C42) : const Color(0xffF0E9FF),
               onTap: () {
                 Navigator.push(
                   context,
@@ -47,7 +50,7 @@ class ToolsSection extends StatelessWidget {
               title: 'السبحة',
               icon: Icons.sync,
               iconColor: const Color(0xffF59E0B),
-              backgroundColor: const Color(0xfffff4d6),
+              backgroundColor: isDark ? const Color(0xff3D2B0F) : const Color(0xfffff4d6),
               onTap: () {
                 Navigator.push(
                   context,
@@ -60,7 +63,7 @@ class ToolsSection extends StatelessWidget {
               title: 'المصحف',
               icon: Icons.emoji_events_outlined,
               iconColor: const Color(0xffEF4444),
-              backgroundColor: const Color(0xffffe8e8),
+              backgroundColor: isDark ? const Color(0xff3D1919) : const Color(0xffffe8e8),
               onTap: () {},
             ),
           ],
@@ -88,13 +91,14 @@ class ToolItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: 75.w,
         padding: EdgeInsets.symmetric(vertical: 10.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardTheme.color ?? theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(18.r),
           boxShadow: [
             BoxShadow(
@@ -122,6 +126,7 @@ class ToolItem extends StatelessWidget {
               style: AppStrings.font18Regular.copyWith(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
+                color: theme.textTheme.bodyMedium?.color,
               ),
             ),
           ],

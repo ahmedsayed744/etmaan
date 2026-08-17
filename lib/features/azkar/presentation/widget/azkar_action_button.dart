@@ -1,3 +1,4 @@
+import 'package:etmaan/core/theme/app_colors.dart';
 import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,6 +40,7 @@ class _AzkarActionButtonState extends State<AzkarActionButton> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: _handleTap,
       child: AnimatedScale(
@@ -49,7 +51,7 @@ class _AzkarActionButtonState extends State<AzkarActionButton> {
           width: double.infinity,
           height: 45.h,
           decoration: BoxDecoration(
-            color: const Color(0xffE8F6EF),
+            color: isDark ? const Color(0xff1A3327) : const Color(0xffE8F6EF),
             borderRadius: BorderRadius.circular(15.r),
           ),
           child: Center(
@@ -58,6 +60,7 @@ class _AzkarActionButtonState extends State<AzkarActionButton> {
               style: AppStrings.font18Regular.copyWith(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
+                color: isDark ? AppColors.darkText : null,
               ),
             ),
           ),

@@ -13,6 +13,8 @@ class DailyGoalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final remaining =
         (targetPages - completedPages).clamp(0, targetPages);
 
@@ -27,7 +29,7 @@ class DailyGoalCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? const Color(0xff253036) : theme.cardTheme.color ?? theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
@@ -48,7 +50,7 @@ class DailyGoalCard extends StatelessWidget {
                   'هدف اليوم',
                   style: TextStyle(
                     fontSize: 11.sp,
-                    color: const Color(0xff667085),
+                    color: isDark ? const Color(0xffAEB8C4) : const Color(0xff667085),
                   ),
                 ),
 
@@ -59,7 +61,7 @@ class DailyGoalCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 17.sp,
                     fontWeight: FontWeight.w800,
-                    color: const Color(0xff111827),
+                    color: theme.textTheme.bodyLarge?.color,
                   ),
                 ),
 
@@ -69,7 +71,7 @@ class DailyGoalCard extends StatelessWidget {
                   children: [
                     _GoalBadge(
                       text: '$remaining متبقية',
-                      color: const Color(0xffFCEBCB),
+                      color: isDark ? const Color(0xff4A3E26) : const Color(0xffFCEBCB),
                       textColor: const Color(0xffC28117),
                     ),
 
@@ -77,7 +79,7 @@ class DailyGoalCard extends StatelessWidget {
 
                     _GoalBadge(
                       text: '$completedPages مكتملة',
-                      color: const Color(0xffE5F6ED),
+                      color: isDark ? const Color(0xff183D2B) : const Color(0xffE5F6ED),
                       textColor: const Color(0xff27815D),
                     ),
                   ],
@@ -96,7 +98,7 @@ class DailyGoalCard extends StatelessWidget {
                   value: progress,
                   strokeWidth: 5,
                   backgroundColor:
-                      const Color(0xffE8ECEA),
+                      isDark ? const Color(0xff1E2735) : const Color(0xffE8ECEA),
                   valueColor:
                       const AlwaysStoppedAnimation(
                     Color(0xff27815D),

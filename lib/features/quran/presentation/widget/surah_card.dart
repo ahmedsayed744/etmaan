@@ -15,8 +15,10 @@ class SurahCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Material(
-      color: Colors.white,
+      color: theme.cardTheme.color ?? theme.colorScheme.surface,
       borderRadius: BorderRadius.circular(15.r),
       child: InkWell(
         onTap: onTap,
@@ -34,7 +36,7 @@ class SurahCard extends StatelessWidget {
                 height: 32.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xffE7F6EE),
+                  color: isDark ? const Color(0xff1E2735) : const Color(0xffE7F6EE),
                 ),
                 child: Center(
                   child: Text(
@@ -64,7 +66,7 @@ class SurahCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xff111827),
+                        color: theme.textTheme.bodyLarge?.color,
                       ),
                     ),
 
@@ -76,7 +78,7 @@ class SurahCard extends StatelessWidget {
                           TextDirection.rtl,
                       style: TextStyle(
                         fontSize: 9.sp,
-                        color: const Color(0xff98A2B3),
+                        color: isDark ? const Color(0xffAEB8C4) : const Color(0xff98A2B3),
                       ),
                     ),
                   ],
@@ -88,7 +90,7 @@ class SurahCard extends StatelessWidget {
               Icon(
                 Icons.chevron_left,
                 size: 18.sp,
-                color: const Color(0xff98A2B3),
+                color: isDark ? const Color(0xffAEB8C4) : const Color(0xff98A2B3),
               ),
             ],
           ),

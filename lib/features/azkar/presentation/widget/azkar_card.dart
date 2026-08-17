@@ -1,3 +1,4 @@
+import 'package:etmaan/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -19,6 +20,8 @@ class AzkarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final completed = currentCount >= azkar.count;
 
     return AnimatedContainer(
@@ -26,10 +29,12 @@ class AzkarCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.darkContainer : Colors.white,
         borderRadius: BorderRadius.circular(18.r),
         border: Border.all(
-          color: completed ? const Color(0xffB9DACE) : const Color(0xffE5E7EB),
+          color: completed
+              ? const Color(0xffB9DACE)
+              : (isDark ? AppColors.darkDivider : const Color(0xffE5E7EB)),
         ),
         boxShadow: [
           BoxShadow(
@@ -61,7 +66,7 @@ class AzkarCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
                 decoration: BoxDecoration(
-                  color: const Color(0xffF4F9F7),
+                  color: isDark ? const Color(0xff1A3327) : const Color(0xffF4F9F7),
                   borderRadius: BorderRadius.circular(20.r),
                   border: Border.all(color: const Color(0xffB9DACE)),
                 ),
@@ -89,7 +94,7 @@ class AzkarCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: completed
                   ? const Color(0xffC0C4CB)
-                  : const Color(0xff26364A),
+                  : theme.textTheme.bodyLarge?.color,
             ),
           ),
 
@@ -103,7 +108,7 @@ class AzkarCard extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 9.sp,
-                  color: const Color(0xff8B9199),
+                  color: isDark ? AppColors.darkSecondaryText : const Color(0xff8B9199),
                 ),
               ),
             ),

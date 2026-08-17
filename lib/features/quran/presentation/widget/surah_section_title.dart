@@ -6,12 +6,13 @@ class SurahSectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Text(
       'قائمة السور',
       style: TextStyle(
         fontSize: 13.sp,
         fontWeight: FontWeight.w700,
-        color: const Color(0xff111827),
+        color: theme.textTheme.bodyLarge?.color,
       ),
     );
   }
