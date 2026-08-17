@@ -15,7 +15,7 @@ class OnBoardingPage extends StatelessWidget {
       children: [
         const Spacer(),
         OnBoardingImage(image: model.image),
-        Gap(45.h),
+        Gap(40.h),
         OnBoardingTitle(title: model.title),
         Gap(18.h),
         OnBoardingDescription(description: model.description),

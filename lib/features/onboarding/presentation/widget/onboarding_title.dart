@@ -1,6 +1,5 @@
 import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
-
 class OnBoardingTitle extends StatelessWidget {
   const OnBoardingTitle({super.key, required this.title});
 

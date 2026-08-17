@@ -52,6 +52,9 @@ dependencies:
   gap: ^3.0.1
   # For page indicator
   smooth_page_indicator: ^1.2.1
+    # Pdf Viewer
+  syncfusion_flutter_pdfviewer: ^33.2.13
+
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +82,7 @@ flutter:
   assets:
     - assets/images/
     - assets/data/hadith/
-    - assets/data/quran/
+    # - assets/data/quran/quran.pdf
     - assets/data/daily/
     - assets/data/verse/
     - assets/data/azkar/
