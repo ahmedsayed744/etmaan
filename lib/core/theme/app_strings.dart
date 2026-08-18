@@ -18,6 +18,4 @@ class AppStrings {
     color: AppColors.blackColor,
     fontWeight: FontWeight.bold,
   );
-
-
 }

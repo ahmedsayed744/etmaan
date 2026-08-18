@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
           elevation: 0,
           backgroundColor: AppColors.primaryColor,
           surfaceTintColor: AppColors.primaryColor,
-          title: Text(
+          title: Text( 
             "أطمئن",
             style: AppStrings.font22BoldTitle.copyWith(color: Colors.white),
           ),

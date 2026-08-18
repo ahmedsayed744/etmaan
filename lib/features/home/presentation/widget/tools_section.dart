@@ -1,5 +1,6 @@
 import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
+import 'package:etmaan/features/prayer/presentation/view/prayer_view.dart';
 import 'package:etmaan/features/tasbeeh/presentation/view/tasbeeh_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,14 +32,18 @@ class ToolsSection extends StatelessWidget {
               title: 'القرآن',
               icon: Icons.menu_book_outlined,
               iconColor: const Color(0xff198754),
-              backgroundColor: isDark ? const Color(0xff102E20) : const Color(0xffE8F7EF),
+              backgroundColor: isDark
+                  ? const Color(0xff102E20)
+                  : const Color(0xffE8F7EF),
               onTap: () {},
             ),
             ToolItem(
               title: 'الأذكار',
               icon: Icons.nightlight_outlined,
               iconColor: const Color(0xff7C3AED),
-              backgroundColor: isDark ? const Color(0xff2A1C42) : const Color(0xffF0E9FF),
+              backgroundColor: isDark
+                  ? const Color(0xff2A1C42)
+                  : const Color(0xffF0E9FF),
               onTap: () {
                 Navigator.push(
                   context,
@@ -50,7 +55,9 @@ class ToolsSection extends StatelessWidget {
               title: 'السبحة',
               icon: Icons.sync,
               iconColor: const Color(0xffF59E0B),
-              backgroundColor: isDark ? const Color(0xff3D2B0F) : const Color(0xfffff4d6),
+              backgroundColor: isDark
+                  ? const Color(0xff3D2B0F)
+                  : const Color(0xfffff4d6),
               onTap: () {
                 Navigator.push(
                   context,
@@ -60,11 +67,18 @@ class ToolsSection extends StatelessWidget {
             ),
 
             ToolItem(
-              title: 'المصحف',
-              icon: Icons.emoji_events_outlined,
+              title: 'الأذان',
+              icon: Icons.mosque,
               iconColor: const Color(0xffEF4444),
-              backgroundColor: isDark ? const Color(0xff3D1919) : const Color(0xffffe8e8),
-              onTap: () {},
+              backgroundColor: isDark
+                  ? const Color(0xff3D1919)
+                  : const Color(0xffffe8e8),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PrayerView()),
+                );
+              },
             ),
           ],
         ),

@@ -52,8 +52,23 @@ dependencies:
   gap: ^3.0.1
   # For page indicator
   smooth_page_indicator: ^1.2.1
-    # Pdf Viewer
+  # Pdf Viewer
   syncfusion_flutter_pdfviewer: ^33.2.13
+  # API for generic location (GPS etc.) functions.
+  geolocator: ^14.0.2
+  # Geocoding plugin which provides easy geocoding and reverse-geocoding features
+  geocoding: ^5.0.0
+  # Library to calculate prayer times for muslims. Based on precise astronomical formula.
+  adhan_dart: ^2.0.1
+  # A Flutter compass. The heading varies from 0-360, 0 being north.
+  flutter_compass: ^0.8.1
+  # plugin for displaying and scheduling local notifications
+  flutter_local_notifications: ^22.3.0
+  # A feature-rich audio player for Flutter. Loop, clip and sequence any sound from any source (asset/file/URL/stream) in gapless playlists
+  just_audio: ^0.10.6
+  # Time zone databases and time zone aware `DateTime`.
+  timezone: ^0.11.1
+
 
 
 dev_dependencies:
