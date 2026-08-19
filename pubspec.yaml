@@ -68,19 +68,52 @@ dependencies:
   just_audio: ^0.10.6
   # Time zone databases and time zone aware `DateTime`.
   timezone: ^0.11.1
+  # Icon of app
+  flutter_launcher_icons: ^0.14.4
 
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "#101725"
+  adaptive_icon_foreground: "assets/logo/logo.png"
+  web:
+    generate: true
+    image_path: "assets/logo/logo.png"
+    background_color: "#101725"
+    theme_color: "#101725"
+  windows:
+    generate: true
+    image_path: "assets/logo/logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/logo/logo.png"
+# Splash Screen
+flutter_native_splash:
+  color: "FFFFFF"
+  image: assets/logo/etmaan_splash.png
+
+  android: true
+  ios: true
+  web: true
+
+  android_12:
+    image: assets/logo/etmaan_splash.png
+    icon_background_color: "#FFFFFF"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -101,6 +134,7 @@ flutter:
     - assets/data/daily/
     - assets/data/verse/
     - assets/data/azkar/
+    - assets/logo/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

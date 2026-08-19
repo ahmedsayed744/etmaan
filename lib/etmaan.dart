@@ -28,42 +28,28 @@ class Etmaan extends StatelessWidget {
           builder: (_, child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-
               title: 'اطمئن',
-
               locale: const Locale('ar'),
-
               // Light Theme
               theme: AppTheme.lightTheme,
-
               // Dark Theme
               darkTheme: AppTheme.darkTheme,
-
               // Current Theme
               themeMode: state.themeMode,
-
               builder: (context, child) {
                 return Directionality(
                   textDirection: TextDirection.rtl,
                   child: child!,
                 );
               },
-
               home: const OnboardingView(),
-
               routes: {
                 Routs.onboardingView: (context) => const OnboardingView(),
-
                 Routs.rootView: (context) => const RootView(),
-
                 Routs.homeView: (context) => const HomeView(),
-
                 Routs.quranView: (context) => const QuranView(),
-
                 Routs.tasbeehView: (context) => const TasbeehView(),
-
                 Routs.settingView: (context) => const SettingView(),
-
                 Routs.azkarView: (context) => const AzkarView(),
               },
             );
