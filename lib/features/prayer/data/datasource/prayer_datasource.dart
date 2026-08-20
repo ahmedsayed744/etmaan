@@ -28,9 +28,19 @@ class PrayerDataSource {
   List<PrayerTimeModel> getPrayerTimes(
     LocationModel location,
   ) {
-    final prayerTimes = _buildPrayerTimes(
+    return getPrayerTimesForDate(
       location,
       DateTime.now(),
+    );
+  }
+
+  List<PrayerTimeModel> getPrayerTimesForDate(
+    LocationModel location,
+    DateTime date,
+  ) {
+    final prayerTimes = _buildPrayerTimes(
+      location,
+      date,
     );
 
     return [

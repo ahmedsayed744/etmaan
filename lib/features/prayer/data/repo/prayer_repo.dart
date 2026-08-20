@@ -9,6 +9,11 @@ abstract class PrayerRepo {
     LocationModel location,
   );
 
+  List<PrayerTimeModel> getPrayerTimesForDate(
+    LocationModel location,
+    DateTime date,
+  );
+
   DateTime getTomorrowFajr(
     LocationModel location,
   );

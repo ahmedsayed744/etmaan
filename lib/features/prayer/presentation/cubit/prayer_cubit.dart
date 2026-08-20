@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:etmaan/core/cache/cache_helper.dart';
+import 'package:etmaan/core/cache/cache_keys.dart';
+import 'package:etmaan/core/notifications/notification_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 
@@ -45,6 +48,8 @@ class PrayerCubit extends Cubit<PrayerState> {
           clearError: true,
         ),
       );
+
+      await _reschedulePrayerNotificationsIfEnabled(prayerTimes);
 
       _updateNextPrayer();
 
@@ -206,6 +211,28 @@ class PrayerCubit extends Cubit<PrayerState> {
     }
 
     return angle;
+  }
+
+  Future<void> _reschedulePrayerNotificationsIfEnabled(
+    List<PrayerTimeModel> prayerTimes,
+  ) async {
+    try {
+      final enabled = CacheHelper().getData(
+            key: CacheKeys.prayerNotificationsEnabled,
+          ) ==
+          true;
+
+      if (!enabled) {
+        return;
+      }
+
+      await NotificationService.instance.cancelPrayerNotifications();
+      await NotificationService.instance.schedulePrayerNotifications(
+        prayerTimes,
+      );
+    } catch (_) {
+      // Keep prayer UI functional if notification scheduling fails.
+    }
   }
 
   String _cleanError(Object error) {

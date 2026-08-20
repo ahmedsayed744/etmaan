@@ -29,6 +29,17 @@ class PrayerRepoImp implements PrayerRepo {
   }
 
   @override
+  List<PrayerTimeModel> getPrayerTimesForDate(
+    LocationModel location,
+    DateTime date,
+  ) {
+    return prayerDataSource.getPrayerTimesForDate(
+      location,
+      date,
+    );
+  }
+
+  @override
   DateTime getTomorrowFajr(
     LocationModel location,
   ) {

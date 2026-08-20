@@ -105,14 +105,14 @@ flutter_launcher_icons:
 # Splash Screen
 flutter_native_splash:
   color: "FFFFFF"
-  image: assets/logo/etmaan_splash.png
+  image: assets/logo/logo.png
 
   android: true
   ios: true
   web: true
 
   android_12:
-    image: assets/logo/etmaan_splash.png
+    image: assets/logo/logo.png
     icon_background_color: "#FFFFFF"
 
 # For information on the generic Dart part of this file, see the
@@ -130,7 +130,7 @@ flutter:
   assets:
     - assets/images/
     - assets/data/hadith/
-    # - assets/data/quran/quran.pdf
+    - assets/data/quran/quran.pdf
     - assets/data/daily/
     - assets/data/verse/
     - assets/data/azkar/
