@@ -96,7 +96,12 @@ class _EtmaanState extends State<Etmaan> {
                 routes: {
                   Routs.onboardingView: (context) =>
                       const OnboardingView(),
-                  Routs.rootView: (context) => const RootView(),
+                  Routs.rootView: (context) {
+                    final args =
+                        ModalRoute.of(context)?.settings.arguments;
+                    final index = args is int ? args : RootView.homeTab;
+                    return RootView(initialIndex: index);
+                  },
                   Routs.homeView: (context) => const HomeView(),
                   Routs.quranView: (context) => const QuranView(),
                   Routs.tasbeehView: (context) =>

@@ -93,6 +93,18 @@ class NotificationService {
     }
   }
 
+  Future<void> _requestExactAlarmsIfNeeded() async {
+    try {
+      final androidPlugin = _plugin
+          .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin
+          >();
+      await androidPlugin?.requestExactAlarmsPermission();
+    } catch (_) {
+      // Prayer notifications can still be scheduled inexactly.
+    }
+  }
+
   void _onNotificationResponse(NotificationResponse response) {
     _tapController.add(response);
   }
@@ -266,6 +278,7 @@ class NotificationService {
     );
   }
 
+  // Schedule prayer notification with Adhan sound
   Future<bool> schedulePrayerNotification({
     required int id,
     required String title,
@@ -275,6 +288,7 @@ class NotificationService {
   }) async {
     try {
       await _createChannels();
+      await _requestExactAlarmsIfNeeded();
 
       var targetTime = scheduledTime;
 
@@ -283,16 +297,30 @@ class NotificationService {
       }
 
       final tzScheduledTime = tz.TZDateTime.from(targetTime, tz.local);
+      final details = _detailsForChannel(NotificationChannels.prayerAdhanId);
 
-      await _plugin.zonedSchedule(
-        id: id,
-        title: title,
-        body: body,
-        scheduledDate: tzScheduledTime,
-        notificationDetails: _detailsForChannel(NotificationChannels.prayerId),
-        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-        payload: payload,
-      );
+      // Schedule prayer notification with Adhan sound
+      try {
+        await _plugin.zonedSchedule(
+          id: id,
+          title: title,
+          body: body,
+          scheduledDate: tzScheduledTime,
+          notificationDetails: details,
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          payload: payload,
+        );
+      } catch (_) {
+        await _plugin.zonedSchedule(
+          id: id,
+          title: title,
+          body: body,
+          scheduledDate: tzScheduledTime,
+          notificationDetails: details,
+          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+          payload: payload,
+        );
+      }
 
       return true;
     } catch (_) {
@@ -365,6 +393,8 @@ class NotificationService {
   }
 
   NotificationDetails _detailsForChannel(String channelId) {
+    final isPrayerAdhan = channelId == NotificationChannels.prayerAdhanId;
+
     return NotificationDetails(
       android: AndroidNotificationDetails(
         channelId,
@@ -372,11 +402,22 @@ class NotificationService {
         channelDescription: _channelDescriptionForId(channelId),
         importance: channelId == NotificationChannels.motivationalId
             ? Importance.defaultImportance
+            : isPrayerAdhan
+            ? Importance.max
             : Importance.high,
         priority: channelId == NotificationChannels.motivationalId
             ? Priority.defaultPriority
+            : isPrayerAdhan
+            ? Priority.max
             : Priority.high,
         playSound: channelId != NotificationChannels.generalId,
+        sound: isPrayerAdhan
+            ? const RawResourceAndroidNotificationSound('adhan')
+            : null,
+        category: isPrayerAdhan ? AndroidNotificationCategory.alarm : null,
+        audioAttributesUsage: isPrayerAdhan
+            ? AudioAttributesUsage.alarm
+            : AudioAttributesUsage.notification,
       ),
       iOS: const DarwinNotificationDetails(
         presentAlert: true,
@@ -390,6 +431,8 @@ class NotificationService {
     switch (channelId) {
       case NotificationChannels.prayerId:
         return NotificationChannels.prayerName;
+      case NotificationChannels.prayerAdhanId:
+        return NotificationChannels.prayerAdhanName;
       case NotificationChannels.azkarId:
         return NotificationChannels.azkarName;
       case NotificationChannels.quranId:
@@ -405,6 +448,8 @@ class NotificationService {
     switch (channelId) {
       case NotificationChannels.prayerId:
         return NotificationChannels.prayerDescription;
+      case NotificationChannels.prayerAdhanId:
+        return NotificationChannels.prayerAdhanDescription;
       case NotificationChannels.azkarId:
         return NotificationChannels.azkarDescription;
       case NotificationChannels.quranId:

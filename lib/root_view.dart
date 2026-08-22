@@ -7,21 +7,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RootView extends StatefulWidget {
-  const RootView({super.key});
+  static const int homeTab = 0;
+  static const int quranTab = 1;
+  static const int tasbeehTab = 2;
+  static const int settingsTab = 3;
+
+  final int initialIndex;
+
+  const RootView({super.key, this.initialIndex = homeTab});
 
   @override
   State<RootView> createState() => _RootViewState();
 }
 
 class _RootViewState extends State<RootView> {
-  final List<Widget> _screens = const [
-    HomeView(),
-    QuranView(),
-    TasbeehView(),
-    SettingView(),
-  ];
+  late int currentScreen;
+  late final List<Widget> _screens;
 
-  int currentScreen = 0;
+  @override
+  void initState() {
+    super.initState();
+    currentScreen = widget.initialIndex;
+    _screens = [
+      HomeView(onSelectTab: _onNavItemTap),
+      const QuranView(),
+      const TasbeehView(),
+      const SettingView(),
+    ];
+  }
 
   void _onNavItemTap(int index) {
     setState(() {

@@ -14,7 +14,12 @@ class AppRouter {
       case '/OnboardingView':
         return MaterialPageRoute(builder: (_) => const OnboardingView());
       case '/RootView':
-        return MaterialPageRoute(builder: (_) => const RootView());
+        final index = settings.arguments is int
+            ? settings.arguments as int
+            : RootView.homeTab;
+        return MaterialPageRoute(
+          builder: (_) => RootView(initialIndex: index),
+        );
       case '/HomeView':
         return MaterialPageRoute(builder: (_) => const HomeView());
       case '/QuranView':

@@ -1,4 +1,6 @@
 import 'package:etmaan/core/theme/app_strings.dart';
+import 'package:etmaan/core/theme/cubit/theme_cubit.dart';
+import 'package:etmaan/core/theme/cubit/theme_state.dart';
 import 'package:etmaan/features/setting/logic/cubit/setting_cubit.dart';
 import 'package:etmaan/features/setting/logic/cubit/setting_state.dart';
 import 'package:etmaan/features/setting/presentation/widget/notification_setting_tile.dart';
@@ -9,9 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-
-import '../../../../core/theme/cubit/theme_cubit.dart';
-import '../../../../core/theme/cubit/theme_state.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});

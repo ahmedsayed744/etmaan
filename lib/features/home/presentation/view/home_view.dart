@@ -15,7 +15,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  final ValueChanged<int>? onSelectTab;
+
+  const HomeView({super.key, this.onSelectTab});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -63,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
                       Gap(18.h),
                       HadithCard(hadith: state.hadith),
                       Gap(16.h),
-                      const ToolsSection(),
+                      ToolsSection(onSelectTab: widget.onSelectTab),
                       Gap(16.h),
                       const AchievementsSection(),
                       Gap(24.h),

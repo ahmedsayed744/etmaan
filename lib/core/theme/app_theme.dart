@@ -11,9 +11,7 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Tajawal',
     brightness: Brightness.light,
-
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
       brightness: Brightness.light,

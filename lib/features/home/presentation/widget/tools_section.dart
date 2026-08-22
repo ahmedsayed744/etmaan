@@ -1,13 +1,15 @@
 import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
 import 'package:etmaan/features/prayer/presentation/view/prayer_view.dart';
-import 'package:etmaan/features/tasbeeh/presentation/view/tasbeeh_view.dart';
+import 'package:etmaan/root_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 class ToolsSection extends StatelessWidget {
-  const ToolsSection({super.key});
+  final ValueChanged<int>? onSelectTab;
+
+  const ToolsSection({super.key, this.onSelectTab});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +31,6 @@ class ToolsSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ToolItem(
-              title: 'القرآن',
-              icon: Icons.menu_book_outlined,
-              iconColor: const Color(0xff198754),
-              backgroundColor: isDark
-                  ? const Color(0xff102E20)
-                  : const Color(0xffE8F7EF),
-              onTap: () {},
-            ),
-            ToolItem(
               title: 'الأذكار',
               icon: Icons.nightlight_outlined,
               iconColor: const Color(0xff7C3AED),
@@ -58,12 +51,16 @@ class ToolsSection extends StatelessWidget {
               backgroundColor: isDark
                   ? const Color(0xff3D2B0F)
                   : const Color(0xfffff4d6),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TasbeehView()),
-                );
-              },
+              onTap: () => onSelectTab?.call(RootView.tasbeehTab),
+            ),
+            ToolItem(
+              title: 'القرآن',
+              icon: Icons.menu_book_outlined,
+              iconColor: const Color(0xff198754),
+              backgroundColor: isDark
+                  ? const Color(0xff102E20)
+                  : const Color(0xffE8F7EF),
+              onTap: () => onSelectTab?.call(RootView.quranTab),
             ),
 
             ToolItem(
