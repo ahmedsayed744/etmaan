@@ -11,6 +11,7 @@ class OnBoardingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<OnBoardingCubit>();
+    final colorScheme = Theme.of(context).colorScheme;
 
     return SmoothPageIndicator(
       controller: cubit.pageController,
@@ -20,8 +21,8 @@ class OnBoardingIndicator extends StatelessWidget {
         dotWidth: 8.w,
         expansionFactor: 3,
         spacing: 8,
-        activeDotColor: const Color(0xff2E7D32),
-        dotColor: Colors.grey.shade300,
+        activeDotColor: colorScheme.primary,
+        dotColor: colorScheme.outlineVariant,
       ),
     );
   }

@@ -10,7 +10,9 @@ class OnBoardingTitle extends StatelessWidget {
     return Text(
       title,
       textAlign: TextAlign.center,
-      style: AppStrings.font32Bold,
+      style: AppStrings.font32Bold.copyWith(
+        color: Theme.of(context).colorScheme.onSurface,
+      ),
     );
   }
 }

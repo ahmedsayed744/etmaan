@@ -24,8 +24,8 @@ class TasbeehProgress extends StatelessWidget {
                 TextSpan(
                   text:
                       '${state.count} / ${state.target} · ',
-                  style: const TextStyle(
-                    color: Color(0xFF667085),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 14,
                   ),
                 ),

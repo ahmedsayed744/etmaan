@@ -1,29 +1,33 @@
+import 'package:etmaan/core/cache/cache_helper.dart';
+import 'package:etmaan/core/cache/cache_keys.dart';
+import 'package:etmaan/core/routing/routs.dart';
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../constants/onboarding_data.dart';
-import '../cubit/onboarding_cubit.dart';
 
 class SkipButton extends StatelessWidget {
   const SkipButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<OnBoardingCubit>();
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Align(
       alignment: Alignment.centerLeft,
       child: TextButton(
-        onPressed: () {
-          cubit.pageController.animateToPage(
-            OnBoardingData.pages.length - 1,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
+        onPressed: () async {
+          await CacheHelper().saveData(
+            key: CacheKeys.isOnBoardingVisited,
+            value: true,
           );
+          if (!context.mounted) return;
+          Navigator.pushReplacementNamed(context, Routs.rootView);
         },
-        child: const Text(
+        child: Text(
           "تخطي",
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+          style: AppStrings.font18Regular.copyWith(
+            color: colorScheme.primary,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );

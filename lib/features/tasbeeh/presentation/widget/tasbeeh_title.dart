@@ -32,10 +32,10 @@ class TasbeehTitle extends StatelessWidget {
                   state.currentTasbeeh.arabicName,
                 ),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 34,
                   fontWeight: FontWeight.w800,
-                  color: Color(0xFF182230),
+                  color: Theme.of(context).colorScheme.onSurface,
                   height: 1.5,
                 ),
               ),

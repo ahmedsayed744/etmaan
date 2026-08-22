@@ -43,11 +43,7 @@ class SettingView extends StatelessWidget {
                 children: [
                   const SettingHeader(),
                   Gap(20.h),
-                  const SettingStats(
-                    days: 15,
-                    pages: 142,
-                    tasbeeh: 8200,
-                  ),
+                  const SettingStats(days: 15, pages: 142, tasbeeh: 8200),
                   Gap(20.h),
                   ThemeSettingTile(
                     isDark: themeState.isDark,
@@ -56,69 +52,97 @@ class SettingView extends StatelessWidget {
                     },
                   ),
                   Gap(15.h),
-                  Text(
-                    'الإشعارات',
-                    style: AppStrings.font18Regular.copyWith(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w700,
-                      color: theme.textTheme.titleMedium?.color,
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.r),
+                      color: theme.cardTheme.color ?? theme.colorScheme.surface,
                     ),
-                  ),
-                  Gap(8.h),
-                  NotificationSettingTile(
-                    title: 'تذكير القرآن',
-                    icon: Icons.menu_book_outlined,
-                    iconBackground: isDark
-                        ? const Color(0xff102E20)
-                        : const Color(0xffE8F7EF),
-                    value: settingState.quranReminderEnabled,
-                    onChanged: context.read<SettingCubit>().setQuranReminder,
-                  ),
-                  NotificationSettingTile(
-                    title: 'أذكار الصباح',
-                    icon: Icons.wb_sunny_outlined,
-                    iconBackground: isDark
-                        ? const Color(0xff3D2B0F)
-                        : const Color(0xfffff1c4),
-                    value: settingState.morningAzkarEnabled,
-                    onChanged: context.read<SettingCubit>().setMorningAzkar,
-                  ),
-                  NotificationSettingTile(
-                    title: 'أذكار المساء',
-                    icon: Icons.nightlight_round,
-                    iconBackground: isDark
-                        ? const Color(0xff2A1C42)
-                        : const Color(0xffF0E9FF),
-                    value: settingState.eveningAzkarEnabled,
-                    onChanged: context.read<SettingCubit>().setEveningAzkar,
-                  ),
-                  NotificationSettingTile(
-                    title: 'تذكير الجمعة',
-                    icon: Icons.calendar_today_outlined,
-                    iconBackground: isDark
-                        ? const Color(0xff1E2735)
-                        : const Color(0xffEEF0ED),
-                    value: settingState.fridayReminderEnabled,
-                    onChanged: context.read<SettingCubit>().setFridayReminder,
-                  ),
-                  NotificationSettingTile(
-                    title: 'رسائل تحفيزية',
-                    icon: Icons.favorite_outline,
-                    iconBackground: isDark
-                        ? const Color(0xff3D1919)
-                        : const Color(0xffffe8e8),
-                    value: settingState.motivationalEnabled,
-                    onChanged: context.read<SettingCubit>().setMotivational,
-                  ),
-                  NotificationSettingTile(
-                    title: 'تنبيهات الصلاة',
-                    icon: Icons.mosque_outlined,
-                    iconBackground: isDark
-                        ? const Color(0xff253036)
-                        : const Color(0xffdff2ff),
-                    value: settingState.prayerNotificationsEnabled,
-                    onChanged:
-                        context.read<SettingCubit>().setPrayerNotifications,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 22,
+                            vertical: 10,
+                          ),
+                          child: Text(
+                            'الإشعارات',
+                            style: AppStrings.font18Regular.copyWith(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700,
+                              color: theme.textTheme.titleMedium?.color,
+                            ),
+                          ),
+                        ),
+                        NotificationSettingTile(
+                          title: 'تذكير القرآن',
+                          icon: Icons.menu_book_outlined,
+                          iconBackground: isDark
+                              ? const Color(0xff102E20)
+                              : const Color(0xffE8F7EF),
+                          value: settingState.quranReminderEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setQuranReminder,
+                        ),
+                        NotificationSettingTile(
+                          title: 'أذكار الصباح',
+                          icon: Icons.wb_sunny_outlined,
+                          iconBackground: isDark
+                              ? const Color(0xff3D2B0F)
+                              : const Color(0xfffff1c4),
+                          value: settingState.morningAzkarEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setMorningAzkar,
+                        ),
+                        NotificationSettingTile(
+                          title: 'أذكار المساء',
+                          icon: Icons.nightlight_round,
+                          iconBackground: isDark
+                              ? const Color(0xff2A1C42)
+                              : const Color(0xffF0E9FF),
+                          value: settingState.eveningAzkarEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setEveningAzkar,
+                        ),
+                        NotificationSettingTile(
+                          title: 'تذكير الجمعة',
+                          icon: Icons.calendar_today_outlined,
+                          iconBackground: isDark
+                              ? const Color(0xff1E2735)
+                              : const Color(0xffEEF0ED),
+                          value: settingState.fridayReminderEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setFridayReminder,
+                        ),
+                        NotificationSettingTile(
+                          title: 'رسائل تحفيزية',
+                          icon: Icons.favorite_outline,
+                          iconBackground: isDark
+                              ? const Color(0xff3D1919)
+                              : const Color(0xffffe8e8),
+                          value: settingState.motivationalEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setMotivational,
+                        ),
+                        NotificationSettingTile(
+                          title: 'تنبيهات الصلاة',
+                          icon: Icons.mosque_outlined,
+                          iconBackground: isDark
+                              ? const Color(0xff253036)
+                              : const Color(0xffdff2ff),
+                          value: settingState.prayerNotificationsEnabled,
+                          onChanged: context
+                              .read<SettingCubit>()
+                              .setPrayerNotifications,
+                        ),
+                      ],
+                    ),
                   ),
                   Gap(15.h),
                 ],

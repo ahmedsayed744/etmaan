@@ -17,6 +17,8 @@ class TasbeehItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
@@ -25,10 +27,10 @@ class TasbeehItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 18),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: isSelected ? tasbeeh.color : Colors.white,
+          color: isSelected ? tasbeeh.color : colorScheme.surface,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: isSelected ? tasbeeh.color : const Color(0xFFE5E8E6),
+            color: isSelected ? tasbeeh.color : colorScheme.outlineVariant,
           ),
           boxShadow: isSelected
               ? [
@@ -43,7 +45,7 @@ class TasbeehItem extends StatelessWidget {
         child: Text(
           tasbeeh.arabicName,
           style: AppStrings.font18Regular.copyWith(
-            color: isSelected ? Colors.white : const Color(0xFF667085),
+            color: isSelected ? colorScheme.onPrimary : colorScheme.onSurfaceVariant,
             fontSize: 16.sp,
           ),
         ),

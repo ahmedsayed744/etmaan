@@ -81,7 +81,9 @@ class _TasbeehCounterState extends State<TasbeehCounter> {
                         child: CircularProgressIndicator(
                           value: progress,
                           strokeWidth: 8.r,
-                          backgroundColor: Color(0xffDEDDDB),
+                          backgroundColor: Theme.of(context)
+                              .colorScheme
+                              .outlineVariant,
                           valueColor: AlwaysStoppedAnimation<Color>(color),
                         ),
                       ),
@@ -124,7 +126,7 @@ class _TasbeehCounterState extends State<TasbeehCounter> {
                                 key: ValueKey(state.count),
                                 style: AppStrings.font32Bold.copyWith(
                                   fontSize: 50.sp,
-                                  color: Colors.white,
+                                  color: Theme.of(context).colorScheme.onPrimary,
                                 ),
                               ),
                             ),
@@ -133,7 +135,7 @@ class _TasbeehCounterState extends State<TasbeehCounter> {
                             Text(
                               'اضغط',
                               style: AppStrings.font18Regular.copyWith(
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.onPrimary,
                               ),
                             ),
                           ],

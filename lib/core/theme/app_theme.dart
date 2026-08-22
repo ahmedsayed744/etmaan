@@ -120,8 +120,11 @@ class AppTheme {
 
     colorScheme: const ColorScheme.dark(
       primary: AppColors.primaryColor,
+      onPrimary: AppColors.darkText,
       surface: AppColors.darkContainer,
       onSurface: AppColors.darkText,
+      onSurfaceVariant: AppColors.darkSecondaryText,
+      outlineVariant: AppColors.darkDivider,
     ),
 
     // =========================

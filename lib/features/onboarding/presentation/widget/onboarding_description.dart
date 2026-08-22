@@ -15,7 +15,7 @@ class OnBoardingDescription extends StatelessWidget {
         description,
         textAlign: TextAlign.center,
         style: AppStrings.font18Regular.copyWith(
-          color: Colors.grey.shade700,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
           height: 1.7,
         ),
       ),

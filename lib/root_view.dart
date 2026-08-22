@@ -1,4 +1,3 @@
-import 'package:etmaan/core/theme/app_colors.dart';
 import 'package:etmaan/features/home/presentation/view/home_view.dart';
 import 'package:etmaan/features/quran/presentation/view/quran_view.dart';
 import 'package:etmaan/features/setting/presentation/view/setting_view.dart';
@@ -70,15 +69,17 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       margin: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 8.h),
       padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(28.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: colorScheme.shadow.withValues(alpha: 0.2),
             blurRadius: 6.r,
             offset: Offset(0, 4.h),
           ),
@@ -156,6 +157,7 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isSelected = currentIndex == index;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return GestureDetector(
       onTap: () => onTap(index),
@@ -167,7 +169,7 @@ class _NavItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 3.w),
         decoration: BoxDecoration(
           color: isSelected
-              ? const Color.fromARGB(255, 210, 214, 213)
+              ? colorScheme.primary.withValues(alpha: 0.14)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -187,8 +189,8 @@ class _NavItem extends StatelessWidget {
                 key: ValueKey(isSelected),
                 size: 22.r,
                 color: isSelected
-                    ? AppColors.primaryColor
-                    : const Color(0xFF667085),
+                    ? colorScheme.primary
+                    : colorScheme.onSurfaceVariant,
               ),
             ),
 
@@ -200,8 +202,8 @@ class _NavItem extends StatelessWidget {
                 fontSize: 10.sp,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                 color: isSelected
-                    ? AppColors.primaryColor
-                    : const Color(0xFF667085),
+                    ? colorScheme.primary
+                    : colorScheme.onSurfaceVariant,
               ),
               child: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
             ),

@@ -54,13 +54,15 @@ class _ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Column(
       children: [
         Material(
-          color: Colors.white,
+          color: colorScheme.surface,
           borderRadius: BorderRadius.circular(18),
           elevation: 2,
-          shadowColor: Colors.black.withValues(alpha: 0.8),
+          shadowColor: colorScheme.shadow.withValues(alpha: 0.8),
           child: InkWell(
             onTap: onTap,
             borderRadius: BorderRadius.circular(18),
@@ -69,7 +71,7 @@ class _ActionButton extends StatelessWidget {
               height: 58,
               child: Icon(
                 icon,
-                color: const Color(0xFF667085),
+                color: colorScheme.onSurfaceVariant,
                 size: 24,
               ),
             ),
@@ -80,9 +82,9 @@ class _ActionButton extends StatelessWidget {
 
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 13,
-            color: Color(0xFF667085),
+            color: colorScheme.onSurfaceVariant,
           ),
         ),
       ],
