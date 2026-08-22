@@ -22,7 +22,7 @@ const List<SurahModel> surahs = [
     name: 'آل عمران',
     englishName: 'Ali Imran',
     versesCount: 200,
-    page: 50,
+    page: 45,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -30,7 +30,7 @@ const List<SurahModel> surahs = [
     name: 'النساء',
     englishName: 'An-Nisa',
     versesCount: 176,
-    page: 77,
+    page: 69,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -38,7 +38,7 @@ const List<SurahModel> surahs = [
     name: 'المائدة',
     englishName: 'Al-Maidah',
     versesCount: 120,
-    page: 106,
+    page: 95,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -46,7 +46,7 @@ const List<SurahModel> surahs = [
     name: 'الأنعام',
     englishName: 'Al-Anam',
     versesCount: 165,
-    page: 128,
+    page: 115,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -54,7 +54,7 @@ const List<SurahModel> surahs = [
     name: 'الأعراف',
     englishName: 'Al-Araf',
     versesCount: 206,
-    page: 151,
+    page: 136,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -62,7 +62,7 @@ const List<SurahModel> surahs = [
     name: 'الأنفال',
     englishName: 'Al-Anfal',
     versesCount: 75,
-    page: 177,
+    page: 160,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -70,7 +70,7 @@ const List<SurahModel> surahs = [
     name: 'التوبة',
     englishName: 'At-Tawbah',
     versesCount: 129,
-    page: 187,
+    page: 169,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -78,7 +78,7 @@ const List<SurahModel> surahs = [
     name: 'يونس',
     englishName: 'Yunus',
     versesCount: 109,
-    page: 208,
+    page: 187,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -86,7 +86,7 @@ const List<SurahModel> surahs = [
     name: 'هود',
     englishName: 'Hud',
     versesCount: 123,
-    page: 221,
+    page: 199,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -94,7 +94,7 @@ const List<SurahModel> surahs = [
     name: 'يوسف',
     englishName: 'Yusuf',
     versesCount: 111,
-    page: 235,
+    page: 212,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -102,7 +102,7 @@ const List<SurahModel> surahs = [
     name: 'الرعد',
     englishName: 'Ar-Rad',
     versesCount: 43,
-    page: 249,
+    page: 225,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -110,7 +110,7 @@ const List<SurahModel> surahs = [
     name: 'إبراهيم',
     englishName: 'Ibrahim',
     versesCount: 52,
-    page: 255,
+    page: 231,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -118,7 +118,7 @@ const List<SurahModel> surahs = [
     name: 'الحجر',
     englishName: 'Al-Hijr',
     versesCount: 99,
-    page: 262,
+    page: 237,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -126,7 +126,7 @@ const List<SurahModel> surahs = [
     name: 'النحل',
     englishName: 'An-Nahl',
     versesCount: 128,
-    page: 267,
+    page: 242,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -134,7 +134,7 @@ const List<SurahModel> surahs = [
     name: 'الإسراء',
     englishName: 'Al-Isra',
     versesCount: 111,
-    page: 282,
+    page: 255,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -142,7 +142,7 @@ const List<SurahModel> surahs = [
     name: 'الكهف',
     englishName: 'Al-Kahf',
     versesCount: 110,
-    page: 293,
+    page: 266,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -150,7 +150,7 @@ const List<SurahModel> surahs = [
     name: 'مريم',
     englishName: 'Maryam',
     versesCount: 98,
-    page: 305,
+    page: 277,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -158,7 +158,7 @@ const List<SurahModel> surahs = [
     name: 'طه',
     englishName: 'Taha',
     versesCount: 135,
-    page: 312,
+    page: 284,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -166,7 +166,7 @@ const List<SurahModel> surahs = [
     name: 'الأنبياء',
     englishName: 'Al-Anbiya',
     versesCount: 112,
-    page: 322,
+    page: 294,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -174,7 +174,7 @@ const List<SurahModel> surahs = [
     name: 'الحج',
     englishName: 'Al-Hajj',
     versesCount: 78,
-    page: 332,
+    page: 302,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -182,7 +182,7 @@ const List<SurahModel> surahs = [
     name: 'المؤمنون',
     englishName: 'Al-Muminun',
     versesCount: 118,
-    page: 342,
+    page: 311,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -190,7 +190,7 @@ const List<SurahModel> surahs = [
     name: 'النور',
     englishName: 'An-Nur',
     versesCount: 64,
-    page: 350,
+    page: 319,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -198,7 +198,7 @@ const List<SurahModel> surahs = [
     name: 'الفرقان',
     englishName: 'Al-Furqan',
     versesCount: 77,
-    page: 359,
+    page: 329,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -206,7 +206,7 @@ const List<SurahModel> surahs = [
     name: 'الشعراء',
     englishName: 'Ash-Shuara',
     versesCount: 227,
-    page: 367,
+    page: 335,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -214,7 +214,7 @@ const List<SurahModel> surahs = [
     name: 'النمل',
     englishName: 'An-Naml',
     versesCount: 93,
-    page: 377,
+    page: 345,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -222,7 +222,7 @@ const List<SurahModel> surahs = [
     name: 'القصص',
     englishName: 'Al-Qasas',
     versesCount: 88,
-    page: 385,
+    page: 354,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -230,7 +230,7 @@ const List<SurahModel> surahs = [
     name: 'العنكبوت',
     englishName: 'Al-Ankabut',
     versesCount: 69,
-    page: 396,
+    page: 364,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -238,7 +238,7 @@ const List<SurahModel> surahs = [
     name: 'الروم',
     englishName: 'Ar-Rum',
     versesCount: 60,
-    page: 404,
+    page: 371,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -246,7 +246,7 @@ const List<SurahModel> surahs = [
     name: 'لقمان',
     englishName: 'Luqman',
     versesCount: 34,
-    page: 411,
+    page: 377,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -254,7 +254,7 @@ const List<SurahModel> surahs = [
     name: 'السجدة',
     englishName: 'As-Sajdah',
     versesCount: 30,
-    page: 415,
+    page: 381,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -262,7 +262,7 @@ const List<SurahModel> surahs = [
     name: 'الأحزاب',
     englishName: 'Al-Ahzab',
     versesCount: 73,
-    page: 418,
+    page: 383,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -270,7 +270,7 @@ const List<SurahModel> surahs = [
     name: 'سبأ',
     englishName: 'Saba',
     versesCount: 54,
-    page: 428,
+    page: 393,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -278,7 +278,7 @@ const List<SurahModel> surahs = [
     name: 'فاطر',
     englishName: 'Fatir',
     versesCount: 45,
-    page: 434,
+    page: 399,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -286,7 +286,7 @@ const List<SurahModel> surahs = [
     name: 'يس',
     englishName: 'Ya-Sin',
     versesCount: 83,
-    page: 440,
+    page: 404,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -294,7 +294,7 @@ const List<SurahModel> surahs = [
     name: 'الصافات',
     englishName: 'As-Saffat',
     versesCount: 182,
-    page: 446,
+    page: 410,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -302,7 +302,7 @@ const List<SurahModel> surahs = [
     name: 'ص',
     englishName: 'Sad',
     versesCount: 88,
-    page: 453,
+    page: 417,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -310,7 +310,7 @@ const List<SurahModel> surahs = [
     name: 'الزمر',
     englishName: 'Az-Zumar',
     versesCount: 75,
-    page: 458,
+    page: 422,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -318,7 +318,7 @@ const List<SurahModel> surahs = [
     name: 'غافر',
     englishName: 'Ghafir',
     versesCount: 85,
-    page: 467,
+    page: 431,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -326,7 +326,7 @@ const List<SurahModel> surahs = [
     name: 'فصلت',
     englishName: 'Fussilat',
     versesCount: 54,
-    page: 477,
+    page: 439,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -334,7 +334,7 @@ const List<SurahModel> surahs = [
     name: 'الشورى',
     englishName: 'Ash-Shura',
     versesCount: 53,
-    page: 483,
+    page: 445,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -342,7 +342,7 @@ const List<SurahModel> surahs = [
     name: 'الزخرف',
     englishName: 'Az-Zukhruf',
     versesCount: 89,
-    page: 489,
+    page: 451,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -350,7 +350,7 @@ const List<SurahModel> surahs = [
     name: 'الدخان',
     englishName: 'Ad-Dukhan',
     versesCount: 59,
-    page: 496,
+    page: 457,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -358,7 +358,7 @@ const List<SurahModel> surahs = [
     name: 'الجاثية',
     englishName: 'Al-Jathiyah',
     versesCount: 37,
-    page: 499,
+    page: 460,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -366,7 +366,7 @@ const List<SurahModel> surahs = [
     name: 'الأحقاف',
     englishName: 'Al-Ahqaf',
     versesCount: 35,
-    page: 502,
+    page: 464,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -374,7 +374,7 @@ const List<SurahModel> surahs = [
     name: 'محمد',
     englishName: 'Muhammad',
     versesCount: 38,
-    page: 507,
+    page: 468,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -382,7 +382,7 @@ const List<SurahModel> surahs = [
     name: 'الفتح',
     englishName: 'Al-Fath',
     versesCount: 29,
-    page: 511,
+    page: 472,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -390,7 +390,7 @@ const List<SurahModel> surahs = [
     name: 'الحجرات',
     englishName: 'Al-Hujurat',
     versesCount: 18,
-    page: 515,
+    page: 477,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -398,7 +398,7 @@ const List<SurahModel> surahs = [
     name: 'ق',
     englishName: 'Qaf',
     versesCount: 45,
-    page: 518,
+    page: 479,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -406,7 +406,7 @@ const List<SurahModel> surahs = [
     name: 'الذاريات',
     englishName: 'Adh-Dhariyat',
     versesCount: 60,
-    page: 520,
+    page: 482,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -414,7 +414,7 @@ const List<SurahModel> surahs = [
     name: 'الطور',
     englishName: 'At-Tur',
     versesCount: 49,
-    page: 523,
+    page: 485,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -422,7 +422,7 @@ const List<SurahModel> surahs = [
     name: 'النجم',
     englishName: 'An-Najm',
     versesCount: 62,
-    page: 526,
+    page: 487,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -430,7 +430,7 @@ const List<SurahModel> surahs = [
     name: 'القمر',
     englishName: 'Al-Qamar',
     versesCount: 55,
-    page: 528,
+    page: 490,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -438,7 +438,7 @@ const List<SurahModel> surahs = [
     name: 'الرحمن',
     englishName: 'Ar-Rahman',
     versesCount: 78,
-    page: 531,
+    page: 493,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -446,7 +446,7 @@ const List<SurahModel> surahs = [
     name: 'الواقعة',
     englishName: 'Al-Waqiah',
     versesCount: 96,
-    page: 534,
+    page: 496,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -454,7 +454,7 @@ const List<SurahModel> surahs = [
     name: 'الحديد',
     englishName: 'Al-Hadid',
     versesCount: 29,
-    page: 537,
+    page: 499,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -462,7 +462,7 @@ const List<SurahModel> surahs = [
     name: 'المجادلة',
     englishName: 'Al-Mujadilah',
     versesCount: 22,
-    page: 542,
+    page: 504,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -470,7 +470,7 @@ const List<SurahModel> surahs = [
     name: 'الحشر',
     englishName: 'Al-Hashr',
     versesCount: 24,
-    page: 545,
+    page: 507,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -478,7 +478,7 @@ const List<SurahModel> surahs = [
     name: 'الممتحنة',
     englishName: 'Al-Mumtahanah',
     versesCount: 13,
-    page: 549,
+    page: 510,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -486,7 +486,7 @@ const List<SurahModel> surahs = [
     name: 'الصف',
     englishName: 'As-Saff',
     versesCount: 14,
-    page: 551,
+    page: 513,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -494,7 +494,7 @@ const List<SurahModel> surahs = [
     name: 'الجمعة',
     englishName: 'Al-Jumuah',
     versesCount: 11,
-    page: 553,
+    page: 515,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -502,7 +502,7 @@ const List<SurahModel> surahs = [
     name: 'المنافقون',
     englishName: 'Al-Munafiqun',
     versesCount: 11,
-    page: 554,
+    page: 516,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -510,7 +510,7 @@ const List<SurahModel> surahs = [
     name: 'التغابن',
     englishName: 'At-Taghabun',
     versesCount: 18,
-    page: 556,
+    page: 518,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -518,7 +518,7 @@ const List<SurahModel> surahs = [
     name: 'الطلاق',
     englishName: 'At-Talaq',
     versesCount: 12,
-    page: 558,
+    page: 520,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -526,7 +526,7 @@ const List<SurahModel> surahs = [
     name: 'التحريم',
     englishName: 'At-Tahrim',
     versesCount: 12,
-    page: 560,
+    page: 522,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -534,7 +534,7 @@ const List<SurahModel> surahs = [
     name: 'الملك',
     englishName: 'Al-Mulk',
     versesCount: 30,
-    page: 562,
+    page: 524,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -542,7 +542,7 @@ const List<SurahModel> surahs = [
     name: 'القلم',
     englishName: 'Al-Qalam',
     versesCount: 52,
-    page: 564,
+    page: 526,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -550,7 +550,7 @@ const List<SurahModel> surahs = [
     name: 'الحاقة',
     englishName: 'Al-Haqqah',
     versesCount: 52,
-    page: 566,
+    page: 529,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -558,7 +558,7 @@ const List<SurahModel> surahs = [
     name: 'المعارج',
     englishName: 'Al-Maarij',
     versesCount: 44,
-    page: 568,
+    page: 531,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -566,7 +566,7 @@ const List<SurahModel> surahs = [
     name: 'نوح',
     englishName: 'Nuh',
     versesCount: 28,
-    page: 570,
+    page: 533,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -574,7 +574,7 @@ const List<SurahModel> surahs = [
     name: 'الجن',
     englishName: 'Al-Jinn',
     versesCount: 28,
-    page: 572,
+    page: 534,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -582,7 +582,7 @@ const List<SurahModel> surahs = [
     name: 'المزمل',
     englishName: 'Al-Muzzammil',
     versesCount: 20,
-    page: 574,
+    page: 537,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -590,7 +590,7 @@ const List<SurahModel> surahs = [
     name: 'المدثر',
     englishName: 'Al-Muddaththir',
     versesCount: 56,
-    page: 575,
+    page: 538,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -598,7 +598,7 @@ const List<SurahModel> surahs = [
     name: 'القيامة',
     englishName: 'Al-Qiyamah',
     versesCount: 40,
-    page: 577,
+    page: 540,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -606,7 +606,7 @@ const List<SurahModel> surahs = [
     name: 'الإنسان',
     englishName: 'Al-Insan',
     versesCount: 31,
-    page: 578,
+    page: 542,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -614,7 +614,7 @@ const List<SurahModel> surahs = [
     name: 'المرسلات',
     englishName: 'Al-Mursalat',
     versesCount: 50,
-    page: 580,
+    page: 544,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -622,7 +622,7 @@ const List<SurahModel> surahs = [
     name: 'النبأ',
     englishName: 'An-Naba',
     versesCount: 40,
-    page: 582,
+    page: 545,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -630,7 +630,7 @@ const List<SurahModel> surahs = [
     name: 'النازعات',
     englishName: 'An-Naziat',
     versesCount: 46,
-    page: 583,
+    page: 547,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -638,7 +638,7 @@ const List<SurahModel> surahs = [
     name: 'عبس',
     englishName: 'Abasa',
     versesCount: 42,
-    page: 585,
+    page: 548,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -646,7 +646,7 @@ const List<SurahModel> surahs = [
     name: 'التكوير',
     englishName: 'At-Takwir',
     versesCount: 29,
-    page: 586,
+    page: 550,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -654,7 +654,7 @@ const List<SurahModel> surahs = [
     name: 'الانفطار',
     englishName: 'Al-Infitar',
     versesCount: 19,
-    page: 587,
+    page: 551,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -662,7 +662,7 @@ const List<SurahModel> surahs = [
     name: 'المطففين',
     englishName: 'Al-Mutaffifin',
     versesCount: 36,
-    page: 587,
+    page: 552,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -670,7 +670,7 @@ const List<SurahModel> surahs = [
     name: 'الانشقاق',
     englishName: 'Al-Inshiqaq',
     versesCount: 25,
-    page: 589,
+    page: 553,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -678,7 +678,7 @@ const List<SurahModel> surahs = [
     name: 'البروج',
     englishName: 'Al-Buruj',
     versesCount: 22,
-    page: 590,
+    page: 554,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -686,7 +686,7 @@ const List<SurahModel> surahs = [
     name: 'الطارق',
     englishName: 'At-Tariq',
     versesCount: 17,
-    page: 591,
+    page: 555,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -694,7 +694,7 @@ const List<SurahModel> surahs = [
     name: 'الأعلى',
     englishName: 'Al-Ala',
     versesCount: 19,
-    page: 591,
+    page: 556,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -702,7 +702,7 @@ const List<SurahModel> surahs = [
     name: 'الغاشية',
     englishName: 'Al-Ghashiyah',
     versesCount: 26,
-    page: 592,
+    page: 556,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -710,7 +710,7 @@ const List<SurahModel> surahs = [
     name: 'الفجر',
     englishName: 'Al-Fajr',
     versesCount: 30,
-    page: 593,
+    page: 557,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -718,7 +718,7 @@ const List<SurahModel> surahs = [
     name: 'البلد',
     englishName: 'Al-Balad',
     versesCount: 20,
-    page: 594,
+    page: 559,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -726,7 +726,7 @@ const List<SurahModel> surahs = [
     name: 'الشمس',
     englishName: 'Ash-Shams',
     versesCount: 15,
-    page: 595,
+    page: 559,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -734,7 +734,7 @@ const List<SurahModel> surahs = [
     name: 'الليل',
     englishName: 'Al-Layl',
     versesCount: 21,
-    page: 595,
+    page: 560,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -742,7 +742,7 @@ const List<SurahModel> surahs = [
     name: 'الضحى',
     englishName: 'Ad-Duha',
     versesCount: 11,
-    page: 596,
+    page: 561,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -750,7 +750,7 @@ const List<SurahModel> surahs = [
     name: 'الشرح',
     englishName: 'Ash-Sharh',
     versesCount: 8,
-    page: 596,
+    page: 561,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -758,7 +758,7 @@ const List<SurahModel> surahs = [
     name: 'التين',
     englishName: 'At-Tin',
     versesCount: 8,
-    page: 597,
+    page: 562,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -766,7 +766,7 @@ const List<SurahModel> surahs = [
     name: 'العلق',
     englishName: 'Al-Alaq',
     versesCount: 19,
-    page: 597,
+    page: 562,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -774,7 +774,7 @@ const List<SurahModel> surahs = [
     name: 'القدر',
     englishName: 'Al-Qadr',
     versesCount: 5,
-    page: 598,
+    page: 563,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -782,7 +782,7 @@ const List<SurahModel> surahs = [
     name: 'البينة',
     englishName: 'Al-Bayyinah',
     versesCount: 8,
-    page: 598,
+    page: 563,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -790,7 +790,7 @@ const List<SurahModel> surahs = [
     name: 'الزلزلة',
     englishName: 'Az-Zalzalah',
     versesCount: 8,
-    page: 599,
+    page: 564,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -798,7 +798,7 @@ const List<SurahModel> surahs = [
     name: 'العاديات',
     englishName: 'Al-Adiyat',
     versesCount: 11,
-    page: 599,
+    page: 564,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -806,7 +806,7 @@ const List<SurahModel> surahs = [
     name: 'القارعة',
     englishName: 'Al-Qariah',
     versesCount: 11,
-    page: 600,
+    page: 565,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -814,7 +814,7 @@ const List<SurahModel> surahs = [
     name: 'التكاثر',
     englishName: 'At-Takathur',
     versesCount: 8,
-    page: 600,
+    page: 565,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -822,7 +822,7 @@ const List<SurahModel> surahs = [
     name: 'العصر',
     englishName: 'Al-Asr',
     versesCount: 3,
-    page: 601,
+    page: 566,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -830,7 +830,7 @@ const List<SurahModel> surahs = [
     name: 'الهمزة',
     englishName: 'Al-Humazah',
     versesCount: 9,
-    page: 601,
+    page: 566,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -838,7 +838,7 @@ const List<SurahModel> surahs = [
     name: 'الفيل',
     englishName: 'Al-Fil',
     versesCount: 5,
-    page: 601,
+    page: 566,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -846,7 +846,7 @@ const List<SurahModel> surahs = [
     name: 'قريش',
     englishName: 'Quraysh',
     versesCount: 4,
-    page: 602,
+    page: 567,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -854,7 +854,7 @@ const List<SurahModel> surahs = [
     name: 'الماعون',
     englishName: 'Al-Maun',
     versesCount: 7,
-    page: 602,
+    page: 567,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -862,7 +862,7 @@ const List<SurahModel> surahs = [
     name: 'الكوثر',
     englishName: 'Al-Kawthar',
     versesCount: 3,
-    page: 602,
+    page: 567,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -870,7 +870,7 @@ const List<SurahModel> surahs = [
     name: 'الكافرون',
     englishName: 'Al-Kafirun',
     versesCount: 6,
-    page: 603,
+    page: 568,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -878,7 +878,7 @@ const List<SurahModel> surahs = [
     name: 'النصر',
     englishName: 'An-Nasr',
     versesCount: 3,
-    page: 603,
+    page: 568,
     revelationType: 'مدنية',
   ),
   SurahModel(
@@ -886,7 +886,7 @@ const List<SurahModel> surahs = [
     name: 'المسد',
     englishName: 'Al-Masad',
     versesCount: 5,
-    page: 603,
+    page: 568,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -894,7 +894,7 @@ const List<SurahModel> surahs = [
     name: 'الإخلاص',
     englishName: 'Al-Ikhlas',
     versesCount: 4,
-    page: 604,
+    page: 569,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -902,7 +902,7 @@ const List<SurahModel> surahs = [
     name: 'الفلق',
     englishName: 'Al-Falaq',
     versesCount: 5,
-    page: 604,
+    page: 569,
     revelationType: 'مكية',
   ),
   SurahModel(
@@ -910,7 +910,34 @@ const List<SurahModel> surahs = [
     name: 'الناس',
     englishName: 'An-Nas',
     versesCount: 6,
-    page: 604,
+    page: 569,
     revelationType: 'مكية',
   ),
 ];
+
+const int quranTotalPages = 604;
+
+SurahModel surahForPage(int page) {
+  var match = surahs.first;
+  for (final surah in surahs) {
+    if (surah.page <= page) {
+      match = surah;
+    } else {
+      break;
+    }
+  }
+  return match;
+}
+
+int clampQuranPage(int page, {int totalPages = quranTotalPages}) {
+  if (totalPages < 1) {
+    return 1;
+  }
+  if (page < 1) {
+    return 1;
+  }
+  if (page > totalPages) {
+    return totalPages;
+  }
+  return page;
+}

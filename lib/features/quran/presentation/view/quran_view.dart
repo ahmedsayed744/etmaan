@@ -1,5 +1,8 @@
+import 'package:etmaan/core/cache/cache_helper.dart';
+import 'package:etmaan/core/cache/cache_keys.dart';
 import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:etmaan/features/quran/data/datasource/quran_local_datasource.dart';
+import 'package:etmaan/features/quran/data/models/surah_data.dart';
 import 'package:etmaan/features/quran/data/models/surah_model.dart';
 import 'package:etmaan/features/quran/data/repo/quran_repo_imp.dart';
 import 'package:etmaan/features/quran/logic/cubit/quran_cubit.dart';
@@ -41,10 +44,14 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
   final TextEditingController searchController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
+  int _lastPage = 1;
+
   @override
   void initState() {
     super.initState();
     scrollController.addListener(_onScroll);
+    final cached = CacheHelper().getData(key: CacheKeys.lastQuranPage);
+    _lastPage = clampQuranPage(cached is int ? cached : 1);
   }
 
   @override
@@ -66,11 +73,36 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
     }
   }
 
-  void _openQuran() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const QuranPdfView()),
+  void _loadLastRead() {
+    final cached = CacheHelper().getData(key: CacheKeys.lastQuranPage);
+    final page = cached is int ? cached : 1;
+    setState(() {
+      _lastPage = clampQuranPage(page);
+    });
+  }
+
+  Future<void> _openQuran({int? page}) async {
+    final target = clampQuranPage(page ?? _lastPage);
+
+    await CacheHelper().saveData(
+      key: CacheKeys.lastQuranPage,
+      value: target,
     );
+
+    if (!mounted) {
+      return;
+    }
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => QuranPdfView(initialPage: target),
+      ),
+    );
+
+    if (mounted) {
+      _loadLastRead();
+    }
   }
 
   List<SurahModel> _surahsFrom(QuranState state) {
@@ -133,11 +165,11 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
                         children: [
                           SizedBox(height: 14.h),
                           LastReadCard(
-                            surahName: 'سورة الكهف',
-                            currentPage: 287,
-                            totalPages: 604,
-                            progress: .48,
-                            onContinue: _openQuran,
+                            surahName: 'سورة ${surahForPage(_lastPage).name}',
+                            currentPage: _lastPage,
+                            totalPages: quranTotalPages,
+                            progress: _lastPage / quranTotalPages,
+                            onContinue: () => _openQuran(page: _lastPage),
                           ),
                           Gap(14.h),
                           DailyGoalCard(
@@ -155,7 +187,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
                     if (surahIndex < surahs.length) {
                       return SurahCard(
                         surah: surahs[surahIndex],
-                        onTap: _openQuran,
+                        onTap: () => _openQuran(page: surahs[surahIndex].page),
                       );
                     }
 

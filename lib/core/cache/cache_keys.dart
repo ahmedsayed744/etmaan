@@ -29,4 +29,6 @@ class CacheKeys {
   static const String fridayReminderMinute = 'fridayReminderMinute';
   static const String motivationalHour = 'motivationalHour';
   static const String motivationalMinute = 'motivationalMinute';
+
+  static const String lastQuranPage = 'lastQuranPage';
 }
