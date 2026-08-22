@@ -10,13 +10,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import '../../logic/cubit/tasbeeh_cubit.dart';
 
+import 'package:etmaan/features/tasbeeh/data/datasource/tasbeeh_statistics_datasource.dart';
+import 'package:etmaan/features/tasbeeh/data/repo/tasbeeh_statistics_repo_imp.dart';
+import 'package:etmaan/features/tasbeeh/logic/cubit/tasbeeh_statistics_cubit.dart';
+
 class TasbeehView extends StatelessWidget {
   const TasbeehView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => TasbeehCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => TasbeehCubit()),
+        BlocProvider(
+          create: (_) => TasbeehStatisticsCubit(
+            TasbeehStatisticsRepoImp(TasbeehStatisticsDatasource()),
+          )..initializeStatistics(),
+        ),
+      ],
       child: const _TasbeehView(),
     );
   }
@@ -27,18 +38,20 @@ class _TasbeehView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        surfaceTintColor: Theme.of(context).appBarTheme.backgroundColor,
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        surfaceTintColor: theme.appBarTheme.backgroundColor,
         elevation: 0,
-        centerTitle: true,
         title: Text(
-          "السبحة الالكترونية ",
-          style: AppStrings.font22BoldTitle.copyWith(
-            color: Theme.of(context).textTheme.titleLarge?.color,
+          'السبحة الالكترونية',
+          style: AppStrings.font18Regular.copyWith(
+            fontWeight: FontWeight.w700,
+            color: theme.textTheme.titleLarge?.color,
           ),
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(

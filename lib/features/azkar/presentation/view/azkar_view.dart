@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../data/models/azkar_category_model.dart';
-import '../widget/azkar_app_bar.dart';
 import '../widget/azkar_category_grid.dart';
 import 'azkar_details_view.dart';
 
@@ -26,8 +25,21 @@ class AzkarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      appBar: const AzkarAppBar(title: 'الأذكار'),
+      appBar: AppBar(
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        surfaceTintColor: theme.appBarTheme.backgroundColor,
+        elevation: 0,
+        title: Text(
+          'الأذكار',
+          style: AppStrings.font18Regular.copyWith(
+            fontWeight: FontWeight.w700,
+            color: theme.textTheme.titleLarge?.color,
+          ),
+        ),
+        centerTitle: true,
+      ),
 
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(16.w, 18.h, 16.w, 24.h),

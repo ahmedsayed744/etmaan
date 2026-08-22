@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../logic/cubit/tasbeeh_cubit.dart';
+import '../../logic/cubit/tasbeeh_statistics_cubit.dart';
+import 'tasbeeh_statistics_bottom_sheet.dart';
 
 class TasbeehActions extends StatelessWidget {
   const TasbeehActions({super.key});
@@ -9,6 +11,7 @@ class TasbeehActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<TasbeehCubit>();
+    final statsCubit = context.read<TasbeehStatisticsCubit>();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +20,7 @@ class TasbeehActions extends StatelessWidget {
           icon: Icons.bar_chart_rounded,
           label: 'إحصاء',
           onTap: () {
-            // Open statistics bottom sheet
+            TasbeehStatisticsBottomSheet.show(context, statsCubit);
           },
         ),
 

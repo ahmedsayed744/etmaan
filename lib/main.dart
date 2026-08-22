@@ -7,6 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+import 'package:etmaan/core/statistics/cubit/statistics_cubit.dart';
+import 'package:etmaan/core/statistics/datasource/statistics_local_datasource.dart';
+import 'package:etmaan/core/statistics/repo/statistics_repo_imp.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -17,6 +21,16 @@ void main() async {
   await NotificationService.instance.initialize();
 
   runApp(
-    BlocProvider(create: (context) => ThemeCubit(), child: const Etmaan()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(
+          create: (context) => StatisticsCubit(
+            StatisticsRepoImp(StatisticsLocalDataSource()),
+          )..initialize(),
+        ),
+      ],
+      child: const Etmaan(),
+    ),
   );
 }

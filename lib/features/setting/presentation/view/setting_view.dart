@@ -12,6 +12,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
+import 'package:etmaan/core/statistics/cubit/statistics_cubit.dart';
+import 'package:etmaan/core/statistics/cubit/statistics_state.dart';
+
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
 
@@ -43,7 +46,16 @@ class SettingView extends StatelessWidget {
                 children: [
                   const SettingHeader(),
                   Gap(20.h),
-                  const SettingStats(days: 15, pages: 142, tasbeeh: 8200),
+                  BlocBuilder<StatisticsCubit, StatisticsState>(
+                    builder: (context, statsState) {
+                      final lifetime = statsState is StatisticsLoaded ? statsState.lifetime : null;
+                      return SettingStats(
+                        days: lifetime?.activeDays ?? 0,
+                        pages: lifetime?.totalQuranPages ?? 0,
+                        tasbeeh: lifetime?.totalTasbeeh ?? 0,
+                      );
+                    },
+                  ),
                   Gap(20.h),
                   ThemeSettingTile(
                     isDark: themeState.isDark,

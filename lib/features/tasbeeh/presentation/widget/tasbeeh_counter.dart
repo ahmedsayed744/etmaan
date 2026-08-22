@@ -6,6 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
+import 'package:etmaan/core/statistics/cubit/statistics_cubit.dart';
+import 'package:etmaan/features/tasbeeh/logic/cubit/tasbeeh_statistics_cubit.dart';
+
 class TasbeehCounter extends StatefulWidget {
   const TasbeehCounter({super.key});
 
@@ -19,7 +22,18 @@ class _TasbeehCounterState extends State<TasbeehCounter> {
   // ON TAP
   // ============================================================
   void _onTap() {
-    context.read<TasbeehCubit>().increment();
+    final tasbeehCubit = context.read<TasbeehCubit>();
+    if (tasbeehCubit.count < tasbeehCubit.target) {
+      context.read<StatisticsCubit>().incrementTasbeeh();
+      int sIndex = 0;
+      final state = tasbeehCubit.state;
+      if (state is TasbeehUpdated) {
+        sIndex = state.selectedIndex;
+      }
+      context.read<TasbeehStatisticsCubit>().recordDhikr(sIndex);
+    }
+    tasbeehCubit.increment();
+    
     setState(() {
       _pressed = true;
     });

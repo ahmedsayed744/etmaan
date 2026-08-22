@@ -31,4 +31,13 @@ class CacheKeys {
   static const String motivationalMinute = 'motivationalMinute';
 
   static const String lastQuranPage = 'lastQuranPage';
+
+  // =========================
+  // Statistics
+  // =========================
+  static const String statisticsDaily = 'statisticsDaily';
+  static const String statisticsHistory = 'statisticsHistory';
+  static const String statisticsLifetime = 'statisticsLifetime';
+  static const String statisticsLastOpenDate = 'statisticsLastOpenDate';
+  static const String tasbeehMonthlyStats = 'tasbeehMonthlyStats';
 }

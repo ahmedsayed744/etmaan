@@ -2,15 +2,14 @@ import 'package:etmaan/core/cache/cache_helper.dart';
 import 'package:etmaan/core/cache/cache_keys.dart';
 import 'package:etmaan/features/quran/data/models/surah_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:etmaan/core/statistics/cubit/statistics_cubit.dart';
 
 class QuranPdfView extends StatefulWidget {
   final int initialPage;
 
-  const QuranPdfView({
-    super.key,
-    this.initialPage = 1,
-  });
+  const QuranPdfView({super.key, this.initialPage = 1});
 
   @override
   State<QuranPdfView> createState() => _QuranPdfViewState();
@@ -50,15 +49,16 @@ class _QuranPdfViewState extends State<QuranPdfView> {
       key: CacheKeys.lastQuranPage,
       value: validPage,
     );
+
+    if (mounted) {
+      context.read<StatisticsCubit>().trackQuranPage(validPage);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('القرآن الكريم'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('القرآن الكريم'), centerTitle: true),
       body: SfPdfViewer.asset(
         'assets/data/quran/quran.pdf',
         controller: _controller,
@@ -71,10 +71,7 @@ class _QuranPdfViewState extends State<QuranPdfView> {
           if (_controller.pageNumber != page) {
             _controller.jumpToPage(page);
           }
-          CacheHelper().saveData(
-            key: CacheKeys.lastQuranPage,
-            value: page,
-          );
+          CacheHelper().saveData(key: CacheKeys.lastQuranPage, value: page);
         },
         onDocumentLoadFailed: (details) {
           debugPrint('PDF Error: ${details.description}');
