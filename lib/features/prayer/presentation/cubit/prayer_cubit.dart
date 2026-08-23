@@ -12,13 +12,14 @@ import 'prayer_state.dart';
 
 class PrayerCubit extends Cubit<PrayerState> {
   final PrayerRepo repo;
+  final Stream<CompassEvent>? compassStream;
 
   StreamSubscription<CompassEvent>?
       _compassSubscription;
 
   Timer? _countdownTimer;
 
-  PrayerCubit(this.repo)
+  PrayerCubit(this.repo, {this.compassStream})
       : super(const PrayerState());
 
   Future<void> initialize() async {
@@ -149,8 +150,10 @@ class PrayerCubit extends Cubit<PrayerState> {
   void _startCompass() {
     _compassSubscription?.cancel();
 
+    final stream = compassStream ?? FlutterCompass.events;
+
     _compassSubscription =
-        FlutterCompass.events?.listen(
+        stream?.listen(
       (event) {
         final heading = event.heading;
 

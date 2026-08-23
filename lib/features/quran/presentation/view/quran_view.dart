@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-
 import '../widget/daily_goal_card.dart';
 import '../widget/last_read_card.dart';
 import '../widget/quran_search_bar.dart';
@@ -25,9 +24,8 @@ class QuranView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => QuranCubit(
-        QuranRepoImp(QuranLocalDataSource()),
-      )..loadFirstPage(),
+      create: (_) =>
+          QuranCubit(QuranRepoImp(QuranLocalDataSource()))..loadFirstPage(),
       child: const _QuranViewBody(),
     );
   }
@@ -84,10 +82,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
   Future<void> _openQuran({int? page}) async {
     final target = clampQuranPage(page ?? _lastPage);
 
-    await CacheHelper().saveData(
-      key: CacheKeys.lastQuranPage,
-      value: target,
-    );
+    await CacheHelper().saveData(key: CacheKeys.lastQuranPage, value: target);
 
     if (!mounted) {
       return;
@@ -95,9 +90,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
 
     await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => QuranPdfView(initialPage: target),
-      ),
+      MaterialPageRoute(builder: (_) => QuranPdfView(initialPage: target)),
     );
 
     if (mounted) {
@@ -162,6 +155,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
                   itemBuilder: (context, index) {
                     if (index == 0) {
                       return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 14.h),
                           LastReadCard(
@@ -191,9 +185,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
                     if (state is QuranLoadingMore) {
                       return Padding(
                         padding: EdgeInsets.symmetric(vertical: 16.h),
-                        child: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
+                        child: const Center(child: CircularProgressIndicator()),
                       );
                     }
 
@@ -237,10 +229,7 @@ class _ErrorFooter extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
 
-  const _ErrorFooter({
-    required this.message,
-    required this.onRetry,
-  });
+  const _ErrorFooter({required this.message, required this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -258,10 +247,7 @@ class _ErrorFooter extends StatelessWidget {
             ),
           ),
           Gap(12.h),
-          TextButton(
-            onPressed: onRetry,
-            child: const Text('إعادة المحاولة'),
-          ),
+          TextButton(onPressed: onRetry, child: const Text('إعادة المحاولة')),
         ],
       ),
     );
