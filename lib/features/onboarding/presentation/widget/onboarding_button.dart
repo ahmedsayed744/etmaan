@@ -20,7 +20,7 @@ class OnboardingButton extends StatelessWidget {
 
         return SizedBox(
           width: double.infinity,
-          height: 60.h,
+          height: 55.h,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: colorScheme.primary,
@@ -46,6 +46,7 @@ class OnboardingButton extends StatelessWidget {
                 cubit.isLastPage ? "ابدأ الآن" : "التالي",
                 style: AppStrings.font18Regular.copyWith(
                   fontWeight: FontWeight.w700,
+                  fontSize: 16.sp,
                   color: colorScheme.onPrimary,
                 ),
               ),

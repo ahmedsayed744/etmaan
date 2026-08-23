@@ -1,3 +1,4 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,13 +25,9 @@ class NextPrayerCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color(0xff287F5E),
-            Color(0xff39A875),
-          ],
+          colors: [Color(0xff287F5E), Color(0xff39A875)],
         ),
-        borderRadius:
-            BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: Row(
         children: [
@@ -41,27 +38,17 @@ class NextPrayerCard extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 CircularProgressIndicator(
-                  value: progress.clamp(
-                    0.0,
-                    1.0,
-                  ),
+                  value: progress.clamp(0.0, 1.0),
                   strokeWidth: 3,
-                  backgroundColor:
-                      Colors.white.withValues(
-                    alpha: 0.18,
-                  ),
-                  valueColor:
-                      const AlwaysStoppedAnimation(
-                    Color(0xffE0B354),
-                  ),
+                  backgroundColor: Colors.white.withValues(alpha: 0.18),
+                  valueColor: const AlwaysStoppedAnimation(Color(0xffE0B354)),
                 ),
                 Text(
                   '${(progress.clamp(0.0, 1.0) * 100).round()}%',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 8.sp,
-                    fontWeight:
-                        FontWeight.w800,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ],
@@ -70,48 +57,38 @@ class NextPrayerCard extends StatelessWidget {
           SizedBox(width: 12.w),
           Expanded(
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
                   'الصلاة القادمة',
                   style: TextStyle(
-                    color:
-                        Colors.white.withValues(
-                      alpha: 0.75,
-                    ),
-                    fontSize: 8.sp,
+                    color: Colors.white.withValues(alpha: 0.75),
+                    fontSize: 10.sp,
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 5.h),
                 Text(
                   prayerName,
-                  style: TextStyle(
+                  style: AppStrings.font18Regular.copyWith(
                     color: Colors.white,
-                    fontSize: 18.sp,
-                    fontWeight:
-                        FontWeight.w800,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 5.h),
                 Text(
                   prayerTime,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14.sp,
-                    fontWeight:
-                        FontWeight.w700,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 5.h),
                 Text(
                   'متبقي $remaining',
                   style: TextStyle(
-                    color:
-                        Colors.white.withValues(
-                      alpha: 0.72,
-                    ),
-                    fontSize: 8.sp,
+                    color: Colors.white.withValues(alpha: 0.72),
+                    fontSize: 10.sp,
                   ),
                 ),
               ],

@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:etmaan/core/cache/cache_helper.dart';
+import 'package:etmaan/core/cache/cache_keys.dart';
 import 'package:etmaan/core/notifications/notification_router.dart';
 import 'package:etmaan/core/notifications/notification_service.dart';
 import 'package:etmaan/core/routing/routs.dart';
@@ -29,8 +31,7 @@ class Etmaan extends StatefulWidget {
 }
 
 class _EtmaanState extends State<Etmaan> {
-  final GlobalKey<NavigatorState> _navigatorKey =
-      GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
   StreamSubscription<NotificationResponse>? _notificationTapSubscription;
 
@@ -38,7 +39,8 @@ class _EtmaanState extends State<Etmaan> {
   void initState() {
     super.initState();
     _notificationTapSubscription = NotificationService
-        .instance.onNotificationTap
+        .instance
+        .onNotificationTap
         .listen(_handleNotificationTap);
   }
 
@@ -92,22 +94,22 @@ class _EtmaanState extends State<Etmaan> {
                     child: child!,
                   );
                 },
-                home: const OnboardingView(),
+                home:
+                    CacheHelper().getData(key: CacheKeys.isOnBoardingVisited) ==
+                        true
+                    ? const RootView(initialIndex: RootView.homeTab)
+                    : const OnboardingView(),
                 routes: {
-                  Routs.onboardingView: (context) =>
-                      const OnboardingView(),
+                  Routs.onboardingView: (context) => const OnboardingView(),
                   Routs.rootView: (context) {
-                    final args =
-                        ModalRoute.of(context)?.settings.arguments;
+                    final args = ModalRoute.of(context)?.settings.arguments;
                     final index = args is int ? args : RootView.homeTab;
                     return RootView(initialIndex: index);
                   },
                   Routs.homeView: (context) => const HomeView(),
                   Routs.quranView: (context) => const QuranView(),
-                  Routs.tasbeehView: (context) =>
-                      const TasbeehView(),
-                  Routs.settingView: (context) =>
-                      const SettingView(),
+                  Routs.tasbeehView: (context) => const TasbeehView(),
+                  Routs.settingView: (context) => const SettingView(),
                   Routs.azkarView: (context) => const AzkarView(),
                 },
               );

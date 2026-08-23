@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:etmaan/core/statistics/cubit/statistics_cubit.dart';
+import 'package:etmaan/core/statistics/cubit/statistics_state.dart';
 
 class DailyGoalCard extends StatelessWidget {
-  final int completedPages;
-  final int targetPages;
-
-  const DailyGoalCard({
-    super.key,
-    required this.completedPages,
-    required this.targetPages,
-  });
+  const DailyGoalCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-    final remaining =
-        (targetPages - completedPages).clamp(0, targetPages);
+    return BlocBuilder<StatisticsCubit, StatisticsState>(
+      builder: (context, state) {
+        int completedPages = 0;
+        if (state is StatisticsLoaded) {
+          completedPages = state.daily.quranPages;
+        }
+        const int targetPages = 10;
 
-    final progress = targetPages == 0
-        ? 0.0
-        : completedPages / targetPages;
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
+        final remaining =
+            (targetPages - completedPages).clamp(0, targetPages);
 
-    final percentage =
-        (progress * 100).round();
+        final progress = targetPages == 0
+            ? 0.0
+            : (completedPages / targetPages).clamp(0.0, 1.0);
+
+        final percentage =
+            (progress * 100).round();
 
     return Container(
       width: double.infinity,
@@ -117,6 +121,8 @@ class DailyGoalCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+      },
     );
   }
 }

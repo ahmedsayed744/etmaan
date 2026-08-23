@@ -172,10 +172,7 @@ class _QuranViewBodyState extends State<_QuranViewBody> {
                             onContinue: () => _openQuran(page: _lastPage),
                           ),
                           Gap(14.h),
-                          DailyGoalCard(
-                            completedPages: 8,
-                            targetPages: 10,
-                          ),
+                          const DailyGoalCard(),
                           Gap(16.h),
                           const SurahSectionTitle(),
                           Gap(8.h),

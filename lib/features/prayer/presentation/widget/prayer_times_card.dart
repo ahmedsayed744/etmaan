@@ -1,3 +1,4 @@
+import 'package:etmaan/core/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,34 +24,27 @@ class PrayerTimesCard extends StatelessWidget {
       padding: EdgeInsets.all(10.w),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        borderRadius:
-            BorderRadius.circular(15.r),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             'مواقيت الصلاة',
             textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 11.sp,
+            style: AppStrings.font22BoldTitle.copyWith(
               fontWeight: FontWeight.w800,
-              color:
-                  theme.colorScheme.onSurface,
+              fontSize: 16.sp,
+              color: theme.colorScheme.onSurface,
             ),
           ),
-          SizedBox(height: 7.h),
-          ...prayerTimes.map(
-            (prayer) {
-              return PrayerTimeItem(
-                prayer: prayer,
-                isNext:
-                    prayer.type ==
-                    nextPrayerType,
-              );
-            },
-          ),
+          SizedBox(height: 10.h),
+          ...prayerTimes.map((prayer) {
+            return PrayerTimeItem(
+              prayer: prayer,
+              isNext: prayer.type == nextPrayerType,
+            );
+          }),
         ],
       ),
     );

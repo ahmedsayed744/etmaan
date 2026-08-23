@@ -19,58 +19,45 @@ class QiblaCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.fromLTRB(
-        12.w,
-        10.h,
-        12.w,
-        12.h,
-      ),
+      padding: EdgeInsets.fromLTRB(12.w, 10.h, 12.w, 12.h),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        borderRadius:
-            BorderRadius.circular(15.r),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       child: Column(
         children: [
           Row(
             children: [
+              Text(
+                'اتجاه القبلة',
+                style: TextStyle(
+                  fontSize: 11.sp,
+                  fontWeight: FontWeight.w800,
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
+              const Spacer(),
               Container(
                 width: 22.w,
                 height: 22.w,
-                decoration:
-                    const BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Color(0xffE7F6EE),
                 ),
                 child: Icon(
                   Icons.explore_outlined,
                   size: 12.sp,
-                  color:
-                      const Color(0xff2E9568),
-                ),
-              ),
-              const Spacer(),
-              Text(
-                'اتجاه القبلة',
-                style: TextStyle(
-                  fontSize: 11.sp,
-                  fontWeight:
-                      FontWeight.w800,
-                  color: theme
-                      .colorScheme
-                      .onSurface,
+                  color: const Color(0xff2E9568),
                 ),
               ),
             ],
           ),
 
-          SizedBox(height: 4.h),
+          SizedBox(height: 5.h),
 
           QiblaCompass(
-            qiblaDirection:
-                qiblaDirection,
-            compassHeading:
-                compassHeading,
+            qiblaDirection: qiblaDirection,
+            compassHeading: compassHeading,
           ),
 
           SizedBox(height: 2.h),
@@ -81,8 +68,7 @@ class QiblaCard extends StatelessWidget {
                 : 'وجّه هاتفك نحو القبلة',
             style: TextStyle(
               fontSize: 8.sp,
-              color: theme.colorScheme.onSurface
-                  .withValues(alpha: 0.55),
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.55),
             ),
           ),
 
@@ -92,10 +78,8 @@ class QiblaCard extends StatelessWidget {
             '${qiblaDirection.round()}°',
             style: TextStyle(
               fontSize: 13.sp,
-              fontWeight:
-                  FontWeight.w800,
-              color:
-                  const Color(0xff2E9568),
+              fontWeight: FontWeight.w800,
+              color: const Color(0xff2E9568),
             ),
           ),
         ],

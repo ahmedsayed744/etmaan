@@ -9,8 +9,8 @@ class OnBoardingImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
-      width: 250.w,
+      height: 240.h,
+      width: 240.w,
       child: Image.asset(image, fit: BoxFit.contain),
     );
   }
