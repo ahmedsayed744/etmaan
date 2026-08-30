@@ -2,7 +2,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationChannels {
   NotificationChannels._();
-
   static const String generalId = 'etmaan_general';
   static const String prayerId = 'etmaan_prayer';
   static const String azkarId = 'etmaan_azkar';
@@ -10,7 +9,7 @@ class NotificationChannels {
   static const String motivationalId = 'etmaan_motivational';
 
   // Adhan notification channel
-  static const String prayerAdhanId = 'etmaan_prayer_adhan';
+  static const String prayerAdhanId = 'etmaan_prayer_adhan_v3';
 
   static const String generalName = 'إشعارات عامة';
   static const String prayerName = 'تنبيهات الصلاة';
@@ -32,48 +31,48 @@ class NotificationChannels {
       'تنبيهات مواقيت الصلاة بصوت الأذان';
 
   static List<AndroidNotificationChannel> get androidChannels => [
-        const AndroidNotificationChannel(
-          generalId,
-          generalName,
-          description: generalDescription,
-          importance: Importance.defaultImportance,
-        ),
-        const AndroidNotificationChannel(
-          prayerId,
-          prayerName,
-          description: prayerDescription,
-          importance: Importance.high,
-          playSound: true,
-        ),
-        const AndroidNotificationChannel(
-          azkarId,
-          azkarName,
-          description: azkarDescription,
-          importance: Importance.high,
-          playSound: true,
-        ),
-        const AndroidNotificationChannel(
-          quranId,
-          quranName,
-          description: quranDescription,
-          importance: Importance.high,
-          playSound: true,
-        ),
-        const AndroidNotificationChannel(
-          motivationalId,
-          motivationalName,
-          description: motivationalDescription,
-          importance: Importance.defaultImportance,
-        ),
-        // Adhan notification channel
-        const AndroidNotificationChannel(
-          prayerAdhanId,
-          prayerAdhanName,
-          description: prayerAdhanDescription,
-          importance: Importance.max,
-          playSound: true,
-          sound: RawResourceAndroidNotificationSound('adhan'),
-          audioAttributesUsage: AudioAttributesUsage.alarm,
-        ),
-      ];
+    const AndroidNotificationChannel(
+      generalId,
+      generalName,
+      description: generalDescription,
+      importance: Importance.defaultImportance,
+    ),
+    const AndroidNotificationChannel(
+      prayerId,
+      prayerName,
+      description: prayerDescription,
+      importance: Importance.high,
+      playSound: true,
+    ),
+    const AndroidNotificationChannel(
+      azkarId,
+      azkarName,
+      description: azkarDescription,
+      importance: Importance.high,
+      playSound: true,
+    ),
+    const AndroidNotificationChannel(
+      quranId,
+      quranName,
+      description: quranDescription,
+      importance: Importance.high,
+      playSound: true,
+    ),
+    const AndroidNotificationChannel(
+      motivationalId,
+      motivationalName,
+      description: motivationalDescription,
+      importance: Importance.defaultImportance,
+    ),
+    // Adhan notification channel
+    const AndroidNotificationChannel(
+      prayerAdhanId,
+      prayerAdhanName,
+      description: prayerAdhanDescription,
+      importance: Importance.max,
+      playSound: true,
+      sound: RawResourceAndroidNotificationSound('adhan'),
+      audioAttributesUsage: AudioAttributesUsage.alarm,
+    ),
+  ];
 }

@@ -5,20 +5,14 @@ import '../models/qibla_model.dart';
 abstract class PrayerRepo {
   Future<LocationModel> getLocation();
 
-  List<PrayerTimeModel> getPrayerTimes(
-    LocationModel location,
-  );
+  List<PrayerTimeModel> getPrayerTimes(LocationModel location);
 
   List<PrayerTimeModel> getPrayerTimesForDate(
     LocationModel location,
     DateTime date,
   );
 
-  DateTime getTomorrowFajr(
-    LocationModel location,
-  );
+  DateTime getTomorrowFajr(LocationModel location);
 
-  QiblaModel getQibla(
-    LocationModel location,
-  );
+  QiblaModel getQibla(LocationModel location);
 }

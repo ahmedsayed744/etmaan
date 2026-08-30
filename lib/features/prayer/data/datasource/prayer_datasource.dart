@@ -15,7 +15,7 @@ class PrayerDataSource {
     );
 
     final parameters =
-        CalculationMethodParameters.egyptian();
+        CalculationMethodParameters.muslimWorldLeague();
 
     return PrayerTimes(
       coordinates: coordinates,

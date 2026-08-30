@@ -32,9 +32,7 @@ class NotificationContentRepositoryImp
     'assets/data/hadith/bukhari_7.json',
     'assets/data/hadith/bukhari_8.json',
   ];
-
   final Random _random;
-
   List<VerseModel>? _verses;
   List<HadithModel>? _hadiths;
   Future<void>? _loadFuture;
@@ -58,9 +56,7 @@ class NotificationContentRepositoryImp
   }
 
   @override
-  Future<HadithModel?> getRandomHadith({
-    Set<int> excludeIds = const {},
-  }) async {
+  Future<HadithModel?> getRandomHadith({Set<int> excludeIds = const {}}) async {
     final items = await getRandomHadiths(1, excludeIds: excludeIds);
     return items.isEmpty ? null : items.first;
   }
@@ -88,9 +84,7 @@ class NotificationContentRepositoryImp
   }
 
   Future<void> _loadPools() async {
-    final verseResults = await Future.wait(
-      verseAssetPaths.map(_loadJsonList),
-    );
+    final verseResults = await Future.wait(verseAssetPaths.map(_loadJsonList));
     final hadithResults = await Future.wait(
       hadithAssetPaths.map(_loadJsonList),
     );

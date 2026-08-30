@@ -34,7 +34,7 @@ class NotificationService {
 
     try {
       const androidSettings = AndroidInitializationSettings(
-        '@mipmap/launcher_icon',
+        'ic_etmaan_notification',
       );
 
       const iosSettings = DarwinInitializationSettings(
@@ -400,6 +400,7 @@ class NotificationService {
         channelId,
         _channelNameForId(channelId),
         channelDescription: _channelDescriptionForId(channelId),
+        icon: 'ic_etmaan_notification',
         importance: channelId == NotificationChannels.motivationalId
             ? Importance.defaultImportance
             : isPrayerAdhan

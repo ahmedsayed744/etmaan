@@ -9,6 +9,7 @@ import 'package:etmaan/features/home/presentation/widget/daily_goal_widget.dart'
 import 'package:etmaan/features/home/presentation/widget/hadith_card.dart';
 import 'package:etmaan/features/home/presentation/widget/tools_section.dart';
 import 'package:etmaan/features/home/presentation/widget/verse_card.dart';
+import 'package:etmaan/features/notification/presentation/view/notification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,11 +42,27 @@ class _HomeViewState extends State<HomeView> {
           elevation: 0,
           backgroundColor: AppColors.primaryColor,
           surfaceTintColor: AppColors.primaryColor,
-         automaticallyImplyLeading: false,
+          automaticallyImplyLeading: false,
           title: Text( 
             "أطمئن",
             style: AppStrings.font22BoldTitle.copyWith(color: Colors.white),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.notifications_none_rounded,
+                color: Colors.white,
+                size: 24.r,
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationView(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
         body: SafeArea(
           child: SingleChildScrollView(

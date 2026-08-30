@@ -1,6 +1,7 @@
 import 'package:etmaan/core/notifications/notification_payload.dart';
 import 'package:etmaan/core/routing/routs.dart';
 import 'package:etmaan/features/azkar/presentation/view/azkar_details_view.dart';
+import 'package:etmaan/features/notification/presentation/view/notification_view.dart';
 import 'package:etmaan/features/prayer/presentation/view/prayer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -16,7 +17,12 @@ class NotificationRouter {
 
     switch (target) {
       case NotificationTarget.quran:
-        Navigator.of(context).pushNamed(Routs.quranView);
+      case NotificationTarget.motivational:
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const NotificationView(),
+          ),
+        );
         return;
       case NotificationTarget.morningAzkar:
         Navigator.of(context).push(
@@ -46,7 +52,6 @@ class NotificationRouter {
         );
         return;
       case NotificationTarget.friday:
-      case NotificationTarget.motivational:
       case null:
         Navigator.of(context).pushNamed(Routs.rootView);
         return;

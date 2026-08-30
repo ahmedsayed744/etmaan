@@ -6,7 +6,7 @@ import '../models/location_model.dart';
 
 class LocationDataSource {
   final Geocoding _geocoding = Geocoding(
-    locale: const Locale('ar', 'EG'),
+    locale: const Locale('ar'),
   );
 
   Future<LocationModel> getCurrentLocation() async {

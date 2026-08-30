@@ -2,12 +2,7 @@ import '../../data/models/location_model.dart';
 import '../../data/models/prayer_time_model.dart';
 import '../../data/models/qibla_model.dart';
 
-enum PrayerStatus {
-  initial,
-  loading,
-  success,
-  error,
-}
+enum PrayerStatus { initial, loading, success, error }
 
 class PrayerState {
   final PrayerStatus status;
@@ -44,18 +39,12 @@ class PrayerState {
     return PrayerState(
       status: status ?? this.status,
       location: location ?? this.location,
-      prayerTimes:
-          prayerTimes ?? this.prayerTimes,
-      nextPrayer:
-          nextPrayer ?? this.nextPrayer,
+      prayerTimes: prayerTimes ?? this.prayerTimes,
+      nextPrayer: nextPrayer ?? this.nextPrayer,
       qibla: qibla ?? this.qibla,
-      compassHeading:
-          compassHeading ?? this.compassHeading,
-      remaining:
-          remaining ?? this.remaining,
-      errorMessage: clearError
-          ? null
-          : errorMessage ?? this.errorMessage,
+      compassHeading: compassHeading ?? this.compassHeading,
+      remaining: remaining ?? this.remaining,
+      errorMessage: clearError ? null : errorMessage ?? this.errorMessage,
     );
   }
 }

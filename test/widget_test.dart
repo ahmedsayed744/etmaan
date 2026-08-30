@@ -1,15 +1,23 @@
 import 'package:etmaan/core/cache/cache_helper.dart';
 import 'package:etmaan/core/theme/cubit/theme_cubit.dart';
 import 'package:etmaan/etmaan.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() {
   testWidgets('Etmaan app smoke test renders root app widget', (
     WidgetTester tester,
   ) async {
+    // Mock geocoding platform channel to prevent null-check crash during init.
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      const MethodChannel('flutter.baseflow.com/geocoding'),
+      (MethodCall call) async => <dynamic>[],
+    );
+
     tester.view.physicalSize = const Size(1080, 2400);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(() {
@@ -23,7 +31,6 @@ void main() {
     await tester.pumpWidget(
       BlocProvider(create: (_) => ThemeCubit(), child: const Etmaan()),
     );
-    await tester.pump();
 
     expect(find.byType(Etmaan), findsOneWidget);
   });

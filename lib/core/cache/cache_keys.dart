@@ -6,11 +6,13 @@ class CacheKeys {
   // =========================
 
   static const String azkarProgress = 'azkarProgress';
+  static const String azkarProgressDate = 'azkarProgressDate';
 
   // =========================
   // Notifications
   // =========================
 
+  static const String notificationDailyHistory = 'notificationDailyHistory';
   static const String quranReminderEnabled = 'quranReminderEnabled';
   static const String morningAzkarEnabled = 'morningAzkarEnabled';
   static const String eveningAzkarEnabled = 'eveningAzkarEnabled';

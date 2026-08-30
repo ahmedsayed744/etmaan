@@ -70,6 +70,7 @@ dependencies:
   timezone: ^0.11.1
   # Icon of app
   flutter_launcher_icons: ^0.14.4
+  flutter_timezone: ^5.1.0
 
 
 
@@ -134,7 +135,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
     - assets/data/hadith/
     - assets/data/quran/quran.pdf
     - assets/data/daily/

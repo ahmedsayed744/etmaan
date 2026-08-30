@@ -1,6 +1,5 @@
 import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
 import 'package:etmaan/features/home/presentation/view/home_view.dart';
-import 'package:etmaan/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:etmaan/features/quran/presentation/view/quran_view.dart';
 import 'package:etmaan/features/setting/presentation/view/setting_view.dart';
 import 'package:etmaan/features/tasbeeh/presentation/view/tasbeeh_view.dart';
@@ -11,15 +10,11 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     // final arguments = settings.arguments;
     switch (settings.name) {
-      case '/OnboardingView':
-        return MaterialPageRoute(builder: (_) => const OnboardingView());
       case '/RootView':
         final index = settings.arguments is int
             ? settings.arguments as int
             : RootView.homeTab;
-        return MaterialPageRoute(
-          builder: (_) => RootView(initialIndex: index),
-        );
+        return MaterialPageRoute(builder: (_) => RootView(initialIndex: index));
       case '/HomeView':
         return MaterialPageRoute(builder: (_) => const HomeView());
       case '/QuranView':

@@ -20,12 +20,8 @@ class PrayerRepoImp implements PrayerRepo {
   }
 
   @override
-  List<PrayerTimeModel> getPrayerTimes(
-    LocationModel location,
-  ) {
-    return prayerDataSource.getPrayerTimes(
-      location,
-    );
+  List<PrayerTimeModel> getPrayerTimes(LocationModel location) {
+    return prayerDataSource.getPrayerTimes(location);
   }
 
   @override
@@ -33,27 +29,16 @@ class PrayerRepoImp implements PrayerRepo {
     LocationModel location,
     DateTime date,
   ) {
-    return prayerDataSource.getPrayerTimesForDate(
-      location,
-      date,
-    );
+    return prayerDataSource.getPrayerTimesForDate(location, date);
   }
 
   @override
-  DateTime getTomorrowFajr(
-    LocationModel location,
-  ) {
-    return prayerDataSource.getTomorrowFajr(
-      location,
-    );
+  DateTime getTomorrowFajr(LocationModel location) {
+    return prayerDataSource.getTomorrowFajr(location);
   }
 
   @override
-  QiblaModel getQibla(
-    LocationModel location,
-  ) {
-    return prayerDataSource.getQibla(
-      location,
-    );
+  QiblaModel getQibla(LocationModel location) {
+    return prayerDataSource.getQibla(location);
   }
 }

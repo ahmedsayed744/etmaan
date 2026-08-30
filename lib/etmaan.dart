@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'package:etmaan/core/cache/cache_helper.dart';
-import 'package:etmaan/core/cache/cache_keys.dart';
 import 'package:etmaan/core/notifications/notification_router.dart';
 import 'package:etmaan/core/notifications/notification_service.dart';
 import 'package:etmaan/core/routing/routs.dart';
@@ -9,7 +7,6 @@ import 'package:etmaan/core/theme/cubit/theme_cubit.dart';
 import 'package:etmaan/core/theme/cubit/theme_state.dart';
 import 'package:etmaan/features/azkar/presentation/view/azkar_view.dart';
 import 'package:etmaan/features/home/presentation/view/home_view.dart';
-import 'package:etmaan/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:etmaan/features/prayer/data/datasource/location_datasource.dart';
 import 'package:etmaan/features/prayer/data/datasource/prayer_datasource.dart';
 import 'package:etmaan/features/prayer/data/repo/prayer_repo_imp.dart';
@@ -94,13 +91,8 @@ class _EtmaanState extends State<Etmaan> {
                     child: child!,
                   );
                 },
-                home:
-                    CacheHelper().getData(key: CacheKeys.isOnBoardingVisited) ==
-                        true
-                    ? const RootView(initialIndex: RootView.homeTab)
-                    : const OnboardingView(),
+                home:  RootView(initialIndex: RootView.homeTab),
                 routes: {
-                  Routs.onboardingView: (context) => const OnboardingView(),
                   Routs.rootView: (context) {
                     final args = ModalRoute.of(context)?.settings.arguments;
                     final index = args is int ? args : RootView.homeTab;

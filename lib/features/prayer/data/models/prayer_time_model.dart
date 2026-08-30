@@ -1,11 +1,4 @@
-enum PrayerType {
-  fajr,
-  sunrise,
-  dhuhr,
-  asr,
-  maghrib,
-  isha,
-}
+enum PrayerType { fajr, sunrise, dhuhr, asr, maghrib, isha }
 
 class PrayerTimeModel {
   final PrayerType type;

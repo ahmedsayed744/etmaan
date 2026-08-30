@@ -7,6 +7,8 @@ import 'package:etmaan/core/notifications/notification_payload.dart';
 import 'package:etmaan/core/notifications/notification_service.dart';
 import 'package:etmaan/features/home/data/models/hadith_model.dart';
 import 'package:etmaan/features/home/data/models/verse_model.dart';
+import 'package:etmaan/features/notification/data/notification_history_entry.dart';
+import 'package:etmaan/features/notification/data/notification_history_service.dart';
 import 'package:flutter/foundation.dart';
 
 class DailyNotificationScheduler {
@@ -155,13 +157,13 @@ class DailyNotificationScheduler {
     required DateTime scheduledTime,
     required List<VerseModel> verses,
     required int index,
-  }) {
+  }) async {
     if (index >= verses.length) {
-      return Future.value(false);
+      return false;
     }
 
     final verse = verses[index];
-    return _notificationService.scheduleNotificationAt(
+    final scheduled = await _notificationService.scheduleNotificationAt(
       id: id,
       title: NotificationDefaults.dailyVerseTitle,
       body: _notificationBody(verse.text),
@@ -169,6 +171,27 @@ class DailyNotificationScheduler {
       channelId: NotificationChannels.quranId,
       payload: NotificationPayload.forDailyVerse(verse.id),
     );
+
+    if (scheduled) {
+      final now = DateTime.now();
+      if (scheduledTime.year == now.year &&
+          scheduledTime.month == now.month &&
+          scheduledTime.day == now.day) {
+        await NotificationHistoryService.instance.addEntry(
+          NotificationHistoryEntry(
+            type: 'verse',
+            title: NotificationDefaults.dailyVerseTitle,
+            body: _notificationBody(verse.text),
+            scheduledAt: scheduledTime,
+            surahName: verse.surahName,
+            verseNumber: verse.verseNumber,
+            surahNumber: verse.surahNumber,
+          ),
+        );
+      }
+    }
+
+    return scheduled;
   }
 
   Future<bool> _scheduleHadith({
@@ -176,13 +199,13 @@ class DailyNotificationScheduler {
     required DateTime scheduledTime,
     required List<HadithModel> hadiths,
     required int index,
-  }) {
+  }) async {
     if (index >= hadiths.length) {
-      return Future.value(false);
+      return false;
     }
 
     final hadith = hadiths[index];
-    return _notificationService.scheduleNotificationAt(
+    final scheduled = await _notificationService.scheduleNotificationAt(
       id: id,
       title: NotificationDefaults.dailyHadithTitle,
       body: _notificationBody(hadith.text),
@@ -190,6 +213,25 @@ class DailyNotificationScheduler {
       channelId: NotificationChannels.motivationalId,
       payload: NotificationPayload.forDailyHadith(hadith.id),
     );
+
+    if (scheduled) {
+      final now = DateTime.now();
+      if (scheduledTime.year == now.year &&
+          scheduledTime.month == now.month &&
+          scheduledTime.day == now.day) {
+        await NotificationHistoryService.instance.addEntry(
+          NotificationHistoryEntry(
+            type: 'hadith',
+            title: NotificationDefaults.dailyHadithTitle,
+            body: _notificationBody(hadith.text),
+            scheduledAt: scheduledTime,
+            bookName: hadith.bookName,
+          ),
+        );
+      }
+    }
+
+    return scheduled;
   }
 
   String _notificationBody(String text) {

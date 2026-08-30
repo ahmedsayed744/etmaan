@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:etmaan/core/cache/cache_helper.dart';
 import 'package:etmaan/core/cache/cache_keys.dart';
 import 'package:etmaan/core/notifications/notification_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_compass/flutter_compass.dart';
-
 import '../../data/models/prayer_time_model.dart';
 import '../../data/repo/prayer_repo.dart';
 import 'prayer_state.dart';
