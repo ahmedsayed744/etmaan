@@ -17,7 +17,6 @@
 | 🔊 **Adhan** | Full Adhan audio playback on prayer notification (local raw resource) |
 | 📊 **Statistics** | Daily and lifetime tracking for Tasbeeh, Quran pages, Hizb, and session time |
 | 🌙 **Dark / Light Mode** | Full dark and light theme support, persisted across sessions |
-| 🚀 **Onboarding** | First-run walkthrough screen |
 | 📲 **Notification Center** | In-app history of today's Quran verse and Hadith notifications |
 | ⚙️ **Settings** | Per-category notification toggles, theme switch, and lifetime stats summary |
 
