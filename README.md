@@ -121,7 +121,6 @@ lib/
 │   ├── azkar/           # Azkar categories and detail screens
 │   ├── home/            # Home feed (daily verse + hadith cards)
 │   ├── notification/    # Notification Center (history UI + cubit)
-│   ├── onboarding/      # First-run onboarding flow
 │   ├── prayer/          # Prayer times, Qibla, compass, Adhan
 │   ├── quran/           # Surah list, PDF viewer, search, daily goal
 │   ├── setting/         # Settings, notification toggles, stats summary
