@@ -20,7 +20,10 @@ void main() async {
     final tzInfo = await FlutterTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(tzInfo.identifier));
   } catch (_) {
-    tz.setLocalLocation(tz.getLocation('UTC'));
+    try {
+      final defaultTz = DateTime.now().timeZoneName;
+      tz.setLocalLocation(tz.getLocation(defaultTz));
+    } catch (_) {}
   }
 
   await CacheHelper().init();
@@ -28,7 +31,10 @@ void main() async {
   // Default prayer notifications to enabled on first launch so Adhan schedules automatically.
   final cache = CacheHelper();
   if (cache.getData(key: CacheKeys.prayerNotificationsEnabled) == null) {
-    await cache.saveData(key: CacheKeys.prayerNotificationsEnabled, value: true);
+    await cache.saveData(
+      key: CacheKeys.prayerNotificationsEnabled,
+      value: true,
+    );
   }
 
   await NotificationService.instance.initialize();
@@ -38,9 +44,9 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(
-          create: (context) => StatisticsCubit(
-            StatisticsRepoImp(StatisticsLocalDataSource()),
-          )..initialize(),
+          create: (context) =>
+              StatisticsCubit(StatisticsRepoImp(StatisticsLocalDataSource()))
+                ..initialize(),
         ),
       ],
       child: const Etmaan(),

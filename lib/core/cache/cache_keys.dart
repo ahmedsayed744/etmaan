@@ -35,6 +35,14 @@ class CacheKeys {
   static const String lastQuranPage = 'lastQuranPage';
 
   // =========================
+  // Location
+  // =========================
+  static const String lastLatitude = 'lastLatitude';
+  static const String lastLongitude = 'lastLongitude';
+  static const String lastCity = 'lastCity';
+  static const String lastCountry = 'lastCountry';
+
+  // =========================
   // Statistics
   // =========================
   static const String statisticsDaily = 'statisticsDaily';

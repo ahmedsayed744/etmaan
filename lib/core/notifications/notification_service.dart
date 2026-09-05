@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:etmaan/features/prayer/data/models/prayer_time_model.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-
 import 'notification_channels.dart';
 import 'notification_defaults.dart';
 import 'notification_ids.dart';
@@ -33,6 +33,11 @@ class NotificationService {
     }
 
     try {
+      try {
+        tz.initializeTimeZones();
+        final tzInfo = await FlutterTimezone.getLocalTimezone();
+        tz.setLocalLocation(tz.getLocation(tzInfo.identifier));
+      } catch (_) {}
       const androidSettings = AndroidInitializationSettings(
         'ic_etmaan_notification',
       );

@@ -15,7 +15,6 @@ class DailyContentLoading extends DailyContentState {
 class DailyContentLoaded extends DailyContentState {
   final HadithModel hadith;
   final VerseModel verse;
-
   const DailyContentLoaded({
     required this.hadith,
     required this.verse,
